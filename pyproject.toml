@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "search-eval"
+version = "0.1.0"
+description = "Evaluation of the Software Observatory's search methods (synthetic queries, retrieval)."
+requires-python = ">=3.10"
+authors = [{ name = "Eva Martín del Pico", email = "eva.martin@bsc.es" }]
+# The pipeline (research-software-etl) is a dependency too: the prompt, context
+# format and query filters are imported from it, never copied. It is not listed
+# here so a local editable checkout is not replaced by a git install; see the
+# README ("Install") and the `pipeline` extra.
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "sentence-transformers>=3.0",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+# Pin to a commit or tag before relying on results.
+pipeline = [
+    "research-software-observatory-pipeline @ git+https://github.com/inab/research-software-etl@semantic-search",
+]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
