@@ -20,8 +20,13 @@ data/readme_v2_rev). Every completion goes through `parse_queries`. The CSV has
 one row per query and same/neighbour record, and one random_mean and one
 random_max row per query (not one per random record: that is ~500 MB).
 
+--all-tools scores every tool of the corpus (--requests) instead of the sample.
+
 Usage:
     python -m search_eval.analysis.query_versions_similarity
+    python -m search_eval.analysis.query_versions_similarity --all-tools \
+        --set "v1 stored (Qwen)=data/results.jsonl" \
+        --set "v2 revised (Qwen)=data/v2_rev_qwen/results.jsonl"
     python -m search_eval.analysis.query_versions_similarity \
         --set "v1 GLM=data/v1_glm/results.jsonl" \
         --set "v2 revised=data/readme_v2_rev/results.jsonl"
@@ -38,42 +43,68 @@ import numpy as np
 
 from search_eval.common import (
     BLUE, DATA, DEFAULT_MODEL, EVAL, GREEN, INK, INK2, ORANGE, SURFACE,
-    load, load_model, nearest_neighbours, parse_sets, provenance, read_completions,
+    load, load_model, nearest_neighbours_many, parse_sets, provenance, read_completions,
     record_embeddings, style_axis,
 )
 
-KINDS = ("same", "neighbour", "random")
 DEFAULT_SETS = [
     f"v1 stored (Qwen)={DATA / 'results.jsonl'}",
     f"v2 revised (GLM, README)={DATA / 'readme_v2_rev' / 'results.jsonl'}",
 ]
 
 
-def summarise(scored: list[tuple], n_tools: int) -> tuple[dict, dict]:
-    """scored: (tool_id, query_idx, kind, cosine)."""
-    by_kind = {k: np.array([s[3] for s in scored if s[2] == k]) for k in KINDS}
-    by_query: dict[tuple, dict] = {}
-    for tool_id, qi, kind, cos in scored:
-        d = by_query.setdefault((tool_id, qi), {"same": None, "random": [], "neighbour": []})
-        if kind == "same":
-            d["same"] = cos
-        else:
-            d[kind].append(cos)
-    same = by_kind["same"]
+def auc(same: np.ndarray, control: np.ndarray) -> float:
+    """P(same > control) + P(tie) / 2 over all pairs, from ranks (no pair matrix)."""
+    control = np.sort(control)
+    less = np.searchsorted(control, same, "left")
+    ties = np.searchsorted(control, same, "right") - less
+    return float((less + 0.5 * ties).sum() / (len(same) * len(control)))
+
+
+def summarise(scores: dict, n_tools: int) -> tuple[dict, dict]:
+    """
+    scores: per query, "same" (n,), "neighbour" (n, k) and "random" (n, m), NaN
+    where a random record was skipped for that query's tool; "tool" (n,) its tool.
+    """
+    same = scores["same"]
+    rand = scores["random"]
+    by_kind = {"same": same, "neighbour": scores["neighbour"].ravel(),
+               "random": rand[~np.isnan(rand)]}
     s = {"n_tools_sampled": n_tools,
-         "n_tools_with_queries": len({k[0] for k in by_query}),
+         "n_tools_with_queries": len(set(scores["tool"])),
          "n_queries": len(same)}
     for kind, values in by_kind.items():
         s[kind] = {"n_pairs": len(values), "median": float(np.median(values)),
                    "iqr": [float(x) for x in np.percentile(values, [25, 75])]}
+    best = {"random": np.nanmax(rand, axis=1), "neighbour": scores["neighbour"].max(axis=1)}
     for kind in ("random", "neighbour"):
-        control = by_kind[kind]
-        s[kind]["auc_same_vs_this"] = float(
-            (same[:, None] > control[None, :]).mean()
-            + 0.5 * (same[:, None] == control[None, :]).mean())
-        s[kind]["frac_queries_own_record_beats_all"] = float(np.mean(
-            [d["same"] > max(d[kind]) for d in by_query.values()]))
+        s[kind]["auc_same_vs_this"] = auc(same, by_kind[kind])
+        s[kind]["frac_queries_own_record_beats_all"] = float(np.mean(same > best[kind]))
     return by_kind, s
+
+
+def score(tool_ids, queries, q_emb, matrix, index, neighbours, random_rows, skip):
+    """Cosines of every query of these tools with its own, neighbour and random records."""
+    rows = [(t, qi, q) for t in tool_ids for qi, q in enumerate(queries.get(t, []))]
+    k = len(next(iter(neighbours.values()), []))
+    out = {"tool": np.array([t for t, _, _ in rows], dtype=object),
+           "same": np.empty(len(rows), np.float32),
+           "neighbour": np.empty((len(rows), k), np.float32),
+           "random": np.empty((len(rows), len(random_rows)), np.float32)}
+    rand = matrix[random_rows]
+    for start in range(0, len(rows), 20000):
+        chunk = rows[start:start + 20000]
+        sl = slice(start, start + len(chunk))
+        q = np.stack([q_emb[q] for _, _, q in chunk])
+        own = matrix[[index[t] for t, _, _ in chunk]]
+        nb = matrix[[[index[r] for r in neighbours[t]] for t, _, _ in chunk]]
+        out["same"][sl] = np.einsum("nd,nd->n", q, own)
+        out["neighbour"][sl] = np.einsum("nd,nkd->nk", q, nb)
+        out["random"][sl] = q @ rand.T
+    for n, (t, _, _) in enumerate(rows):
+        if t in skip:
+            out["random"][n, skip[t]] = np.nan
+    return rows, out
 
 
 def main() -> None:
@@ -81,6 +112,8 @@ def main() -> None:
     p.add_argument("--set", dest="sets", action="append", metavar="LABEL=RESULTS",
                    help="a query set to compare (repeatable; default: stored v1 vs v2 revised)")
     p.add_argument("--sample", type=Path, default=DATA / "readme_v2_rev" / "sample.json")
+    p.add_argument("--all-tools", action="store_true",
+                   help="every tool in --requests instead of the --sample")
     p.add_argument("--requests", type=Path, default=DATA / "query_requests.jsonl",
                    help="all records' v1 contexts: the record text and the corpus")
     p.add_argument("--n-neighbours", type=int, default=5)
@@ -91,8 +124,9 @@ def main() -> None:
     args = p.parse_args()
     sets = parse_sets(args.sets, DEFAULT_SETS)
 
-    tool_ids = json.loads(args.sample.read_text())["tool_ids"]
     _, sources, names = load(DATA / "results.jsonl", args.requests)
+    tool_ids = (sorted(sources) if args.all_tools
+                else json.loads(args.sample.read_text())["tool_ids"])
     queries = {label: read_completions(Path(path), set(tool_ids)) for label, path in sets}
 
     model = load_model(args.model)
@@ -101,8 +135,20 @@ def main() -> None:
 
     rng = np.random.default_rng(args.seed)
     random_ids = [ids[n] for n in rng.choice(len(ids), args.n_random, replace=False)]
-    neighbours = {t: nearest_neighbours(t, ids, matrix, sources, args.n_neighbours)
-                  for t in tool_ids}
+    random_rows = [index[r] for r in random_ids]
+    with_queries = [t for t in tool_ids if any(queries[label].get(t) for label, _ in sets)]
+    neighbours = nearest_neighbours_many(with_queries, ids, matrix, sources,
+                                         args.n_neighbours)
+    # Random records skipped for a tool: itself, and copies of its text.
+    by_text: dict[str, list[int]] = {}
+    for n, r in enumerate(random_ids):
+        by_text.setdefault(sources[r][0].strip().lower(), []).append(n)
+    skip = {}
+    for t in with_queries:
+        hit = set(by_text.get(sources[t][0].strip().lower(), []))
+        hit |= {n for n, r in enumerate(random_ids) if r == t}
+        if hit:
+            skip[t] = sorted(hit)
 
     all_q = sorted({q for qs in queries.values() for ql in qs.values() for q in ql})
     q_emb = dict(zip(all_q, model.encode(all_q, normalize_embeddings=True,
@@ -115,26 +161,21 @@ def main() -> None:
         w.writerow(["set", "tool_id", "tool_name", "query_idx", "query", "kind",
                     "record_id", "record_name", "source_kind", "cosine"])
         for label, _ in sets:
-            scored = []
-            for t in tool_ids:
-                own = sources[t][0].strip().lower()
-                controls = [r for r in random_ids
-                            if r != t and sources[r][0].strip().lower() != own]
-                pairs = ([("same", t)] + [("neighbour", r) for r in neighbours[t]]
-                         + [("random", r) for r in controls])
-                recs = np.stack([matrix[index[r]] for _, r in pairs])
-                for qi, q in enumerate(queries[label].get(t, [])):
-                    cosines = recs @ q_emb[q]
-                    for (kind, rec), cos in zip(pairs, cosines):
-                        scored.append((t, qi, kind, float(cos)))
-                        if kind != "random":
-                            w.writerow([label, t, names[t], qi, q, kind, rec, names[rec],
-                                        sources[rec][1], f"{cos:.6f}"])
-                    # One row per query for the random controls, not hundreds.
-                    rand = cosines[1 + len(neighbours[t]):]
-                    for kind, cos in (("random_mean", rand.mean()), ("random_max", rand.max())):
-                        w.writerow([label, t, names[t], qi, q, kind, "", "", "", f"{cos:.6f}"])
-            results[label], summaries[label] = summarise(scored, len(tool_ids))
+            rows, scores = score(tool_ids, queries[label], q_emb, matrix, index,
+                                 neighbours, random_rows, skip)
+            for n, (t, qi, q) in enumerate(rows):
+                recs = [("same", t, scores["same"][n])] + [
+                    ("neighbour", r, c) for r, c in zip(neighbours[t], scores["neighbour"][n])]
+                for kind, rec, cos in recs:
+                    w.writerow([label, t, names[t], qi, q, kind, rec, names[rec],
+                                sources[rec][1], f"{cos:.6f}"])
+                # One row per query for the random controls, not hundreds.
+                rand = scores["random"][n]
+                for kind, cos in (("random_mean", np.nanmean(rand)),
+                                  ("random_max", np.nanmax(rand))):
+                    w.writerow([label, t, names[t], qi, q, kind, "", "", "", f"{cos:.6f}"])
+            results[label], summaries[label] = summarise(scores, len(tool_ids))
+            del scores
 
     summary = {"model": args.model, "seed": args.seed, "n_random": args.n_random,
                "n_neighbours": args.n_neighbours, "sets": dict(sets), **provenance(),
@@ -161,8 +202,9 @@ def plot(results: dict, summary: dict, args, path: Path) -> None:
                              dpi=200, sharex=True, squeeze=False)
     axes = axes[:, 0]
     fig.patch.set_facecolor(SURFACE)
-    allv = np.concatenate([v for r in results.values() for v in r.values()])
-    bins = np.linspace(np.floor(allv.min() * 20) / 20, np.ceil(allv.max() * 20) / 20, 41)
+    lo = min(v.min() for r in results.values() for v in r.values())
+    hi = max(v.max() for r in results.values() for v in r.values())
+    bins = np.linspace(np.floor(lo * 20) / 20, np.ceil(hi * 20) / 20, 41)
     ymax = 0
     for ax, label in zip(axes, labels):
         style_axis(ax)

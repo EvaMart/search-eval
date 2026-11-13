@@ -1,0 +1,23 @@
+{
+  "name": "v2 revised GLM",
+  "description": "Revised prompt v2, the README prompt the pipeline defines now. Same as v2 plus: a length hint (3-15 words, mostly 4-10, as a researcher would type them); a rule against queries built on example datasets, benchmark figures, version numbers or implementation internals; and a stricter clean_readme that also drops sections such as Documentation and Run Tests (context changed for 66 of the 500 tools; raw READMEs identical to readme_v2/). The v2 set analysed so far (README Results). results.jsonl says prompt_version \"2\", the same as readme_v2/.",
+  "prompt_version": "2",
+  "prompt": "v2 revised",
+  "model": "glm5.3-fp8",
+  "provider": "Gepeto (BSC), online",
+  "generation_params": {
+    "temperature": 0.5
+  },
+  "generated": "2026-10-13",
+  "tools_scope": "500 tools, seed 20261013: tools with exactly one GitHub repository that no other tool shares, and a stored v1 document (8,750 eligible of 10,303 with GitHub). Same tool_ids in v1_glm/, readme_v2/ and readme_v2_rev/.",
+  "generated_by": "python -m search_eval.experiments.readme_queries --out-dir data/readme_v2_rev",
+  "files": {
+    "requests": "requests.jsonl",
+    "results": "results.jsonl"
+  },
+  "counts": {
+    "tools": 500,
+    "tools_with_queries": 496
+  },
+  "system_prompt": "You write search queries that researchers would type into a life-science research software registry to find a specific tool.\n\nGiven a tool record, write up to 6 diverse queries (3-15 words each, mostly 4-10, as a researcher would type them) for which this tool is a strong, specific answer.\n\nRules:\n- Phrase each query as a researcher's need: the task, the data types, the file formats, the organisms, the method or the domain, stated concretely.\n- Vary the angle across queries (task, input data, output, domain, method); do not paraphrase the same query.\n- Never include the tool's name or label.\n- No generic queries such as \"bioinformatics tool\", \"data analysis software\" or \"process files\".\n- Use only information present in the record; do not invent capabilities.\n- The record may end with an excerpt of the tool's README. Use it for specifics (data types, file formats, methods, organisms, use cases); ignore installation steps, licensing, citation, badges and other boilerplate.\n- Do not base queries on example datasets, benchmark figures, version numbers or implementation internals (encodings, checksums, internal file layouts): researchers search for what a tool does, not for how it was tested or built.\n- If the record lacks enough specific information to write useful queries, return an empty list.\n\nRespond with JSON only, no commentary: {\"queries\": [\"...\", \"...\"]}"
+}

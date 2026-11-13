@@ -1,4 +1,16 @@
-data/
+# data/: only the small reference files are tracked (README, "Data files");
+# the large query sets go to Zenodo, and caches and big CSVs are rebuilt.
+data/**
+!data/**/
+!data/**/dataset.json
+!data/**/sample.json
+!data/results.dataset.json
+!data/eval_queries/queries.jsonl
+!data/eval_queries/name_queries.jsonl
+!data/eval_queries/task_queries.jsonl
+!data/eval/*.json
+!data/eval/*.png
+!data/eval/retriever_comparison_*.csv
 .env
 __pycache__/
 *.egg-info/

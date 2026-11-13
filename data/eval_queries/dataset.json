@@ -1,0 +1,53 @@
+{
+  "description": "Evaluation queries for the tool_search retrievers: name queries built from display names, task queries written by an LLM from the tool's record. Each row's `relevant` is the tool and its same-name records.",
+  "files": {
+    "queries": "queries.jsonl",
+    "sample": "sample.json"
+  },
+  "n_tools": 300,
+  "seed": 20261112,
+  "index_counts": {
+    "tool_search": 301131,
+    "tool_search_exp_names": 50314
+  },
+  "queries_by_type": {
+    "name_exact": 300,
+    "name_typo": 236,
+    "name_variant": 60,
+    "task_description": 275,
+    "task_keyword": 271,
+    "task_question": 274
+  },
+  "tasks": {
+    "model": "glm5.3-fp8",
+    "temperature": 0.7,
+    "tools_without_record": 11,
+    "tools_answered": 288,
+    "tools_judged_too_vague": 13,
+    "tools_failed": 1,
+    "queries": 820,
+    "generated_at": "2026-11-12T16:16:02Z",
+    "pipeline_version": "0.1.5",
+    "pipeline_commit": "2916ea6aa7f901c63d659355e4fc9510753b341b",
+    "pipeline_dirty": true
+  },
+  "task_prompt": "You simulate researchers searching a registry of life-science research software. Given a tool record, write the three searches below, each one a different person who needs this tool but has never heard of it.\n\n- \"keyword\": 2-4 words, typed as a terse search-box query (e.g. \"variant calling nanopore\").\n- \"description\": 6-14 words describing the task they want done, in their own words, not the record's (e.g. \"find structural variants in long reads from a tumour sample\").\n- \"question\": a question or problem statement as they would ask a colleague (e.g. \"how can I tell which of my contigs are bacterial contamination?\").\n\nRules:\n- Never use the tool's name, labels or any part of them.\n- Describe the need, not the tool: do not copy phrases from the description.\n- Only needs this tool really meets, according to the record.\n- If the record is too vague to say what the tool does, return null for all three.\n\nRespond with JSON only: {\"keyword\": \"...\", \"description\": \"...\", \"question\": \"...\"}",
+  "leakage": {
+    "task_queries_with_indexed_queries": 774,
+    "own_query_sim": {
+      "median": 0.845,
+      "p90": 0.918
+    },
+    "best_other_tool_query_sim": {
+      "median": 0.741,
+      "p90": 0.806
+    },
+    "share_near_copies_ge_0.95": 0.03,
+    "by_type_median_own_sim": {
+      "task_keyword": 0.861,
+      "task_description": 0.844,
+      "task_question": 0.836
+    }
+  },
+  "finished_at": "2026-11-12T16:16:18Z"
+}

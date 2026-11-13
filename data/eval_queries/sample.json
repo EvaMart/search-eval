@@ -1,0 +1,4491 @@
+{
+  "n": 300,
+  "seed": 20261112,
+  "sampled_from": "tool_search_exp_names (50314 tools)",
+  "index_counts": {
+    "tool_search": 301131,
+    "tool_search_exp_names": 50314
+  },
+  "tools_with_queries_in_sample": 264,
+  "sampled_at": "2026-11-12T12:07:23Z",
+  "tools": [
+    {
+      "tool_id": "69e76f3fc0cec6c6a36f53db",
+      "name": "3DCardiomics",
+      "names": [
+        "3d-cardiomics",
+        "3DCardiomics"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76f4dc0cec6c6a36f54ce",
+      "name": "gemini_de_novo",
+      "names": [
+        "gemini_de_novo",
+        "GEMINI de_novo"
+      ],
+      "sources": [
+        "galaxy",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e76f57c0cec6c6a36f5599",
+      "name": "PrecursorMassCorrector",
+      "names": [
+        "precursormasscorrector"
+      ],
+      "sources": [
+        "galaxy",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e76f5fc0cec6c6a36f563a",
+      "name": "AGNOSTOS-DB",
+      "names": [
+        "agnostos-db"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "workflow"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76f6cc0cec6c6a36f571a",
+      "name": "Check headers",
+      "names": [
+        "get_headers",
+        "Check headers"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e76f77c0cec6c6a36f57db",
+      "name": "gd_select_snps",
+      "names": [
+        "gd_select_snps",
+        "Select"
+      ],
+      "sources": [
+        "galaxy",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76f81c0cec6c6a36f5882",
+      "name": "(AU)ROC(CH)",
+      "names": [
+        "aurocch",
+        "(AU)ROC(CH)"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76f8bc0cec6c6a36f5916",
+      "name": "GEOquery",
+      "names": [
+        "bioconductor-geoquery",
+        "GEOQuery",
+        "GEOquery: Get data from NCBI Gene Expression Omnibus (GEO)"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools",
+        "galaxy_metadata",
+        "github",
+        "toolshed"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76f8ec0cec6c6a36f5963",
+      "name": "bioconductor-txdb.mmusculus.ucsc.mm10.ensgene",
+      "names": [
+        "bioconductor-txdb.mmusculus.ucsc.mm10.ensgene"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e76f9ac0cec6c6a36f5a60",
+      "name": "ABC-GWAS",
+      "names": [
+        "abc-gwas"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76fa6c0cec6c6a36f5b3e",
+      "name": "fakemp",
+      "names": [
+        "python-fakemp",
+        "fakemp"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e76faac0cec6c6a36f5b89",
+      "name": "meme_dreme",
+      "names": [
+        "meme_dreme",
+        "DREME"
+      ],
+      "sources": [
+        "galaxy",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e76fbec0cec6c6a36f5ce4",
+      "name": "ADMETlab",
+      "names": [
+        "admetlab"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76fc0c0cec6c6a36f5d17",
+      "name": "MSI plot spectra",
+      "names": [
+        "cardinal_spectra_plots",
+        "MSI plot spectra"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 3
+    },
+    {
+      "tool_id": "69e76fc9c0cec6c6a36f5db9",
+      "name": "mothur_chimera_perseus",
+      "names": [
+        "mothur_chimera_perseus",
+        "Chimera.perseus"
+      ],
+      "sources": [
+        "galaxy",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 3
+    },
+    {
+      "tool_id": "69e76fcbc0cec6c6a36f5ddf",
+      "name": "bioconductor-ensdb.rnorvegicus.v75",
+      "names": [
+        "bioconductor-ensdb.rnorvegicus.v75"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e76fcdc0cec6c6a36f5e03",
+      "name": "ALMOST",
+      "names": [
+        "almost"
+      ],
+      "sources": [
+        "biotools",
+        "sourceforge"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76fdac0cec6c6a36f5efb",
+      "name": "qiime_split_libraries",
+      "names": [
+        "qiime_split_libraries",
+        "Split libraries"
+      ],
+      "sources": [
+        "galaxy",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e76fe3c0cec6c6a36f5f9f",
+      "name": "rbc_rnacode",
+      "names": [
+        "rbc_rnacode",
+        "RNAcode"
+      ],
+      "sources": [
+        "galaxy",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76fe5c0cec6c6a36f5fd0",
+      "name": "vcf2parquet",
+      "names": [
+        "vcf2parquet"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76ff0c0cec6c6a36f60be",
+      "name": "locus_processing",
+      "names": [
+        "locus_processing"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e76ff2c0cec6c6a36f60e7",
+      "name": "mothur_trim_flows",
+      "names": [
+        "mothur_trim_flows",
+        "Trim.flows"
+      ],
+      "sources": [
+        "galaxy",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e76ff3c0cec6c6a36f60fa",
+      "name": "ggtreeDendro",
+      "names": [
+        "bioconductor-ggtree",
+        "bioconductor-ggtreedendro",
+        "ggtree",
+        "ggtreeDendro"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e76fffc0cec6c6a36f61f7",
+      "name": "bioconductor-moe430bcdf",
+      "names": [
+        "bioconductor-moe430bcdf"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e77003c0cec6c6a36f6249",
+      "name": "mothur_venn",
+      "names": [
+        "mothur_venn",
+        "Venn"
+      ],
+      "sources": [
+        "galaxy",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 2
+    },
+    {
+      "tool_id": "69e77013c0cec6c6a36f6399",
+      "name": "cpgplot",
+      "names": [
+        "emboss: cpgplot15",
+        "cpgplot"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 3
+    },
+    {
+      "tool_id": "69e7701ac0cec6c6a36f6434",
+      "name": "ecopcr",
+      "names": [
+        "ecopcr"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e7703cc0cec6c6a36f66db",
+      "name": "covsonar",
+      "names": [
+        "covsonar"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7703dc0cec6c6a36f66eb",
+      "name": "counterr",
+      "names": [
+        "counterr"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7703dc0cec6c6a36f66ef",
+      "name": "ATLIGATOR",
+      "names": [
+        "atligator"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7703ec0cec6c6a36f670a",
+      "name": "bioconductor-xtrasnplocs.hsapiens.dbsnp144.grch37",
+      "names": [
+        "bioconductor-xtrasnplocs.hsapiens.dbsnp144.grch37"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77050c0cec6c6a36f6884",
+      "name": "MCPcounter",
+      "names": [
+        "r-mcpcounter",
+        "MCPcounter"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77052c0cec6c6a36f68b6",
+      "name": "GAP LinearCode to KCF",
+      "names": [
+        "glytools_convert_lc_kcf",
+        "GAP LinearCode to KCF"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77053c0cec6c6a36f68d1",
+      "name": "dearseq",
+      "names": [
+        "bioconductor-dearseq",
+        "dearseq"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77065c0cec6c6a36f6a6c",
+      "name": "MAnorm",
+      "names": [
+        "manorm"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77070c0cec6c6a36f6b41",
+      "name": "pbcore",
+      "names": [
+        "pbcore"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77082c0cec6c6a36f6cb4",
+      "name": "snakemake-executor-plugin-googlebatch",
+      "names": [
+        "snakemake-executor-plugin-googlebatch"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77090c0cec6c6a36f6dcb",
+      "name": "SpatialDecon",
+      "names": [
+        "bioconductor-spatialdecon",
+        "SpatialDecon"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7709dc0cec6c6a36f6eda",
+      "name": "HD2013SGI",
+      "names": [
+        "bioconductor-hd2013sgi",
+        "HD2013SGI"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7709dc0cec6c6a36f6ee7",
+      "name": "Joint SNV Mix",
+      "names": [
+        "joint_snv_mix",
+        "Joint SNV Mix"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e7709ec0cec6c6a36f6eef",
+      "name": "Gzip datasets",
+      "names": [
+        "justgzip",
+        "Gzip datasets"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e770a3c0cec6c6a36f6f61",
+      "name": "Perform affine image registration (intensity-based)",
+      "names": [
+        "ip_image_registration",
+        "Perform affine image registration (intensity-based)"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e770b2c0cec6c6a36f70a3",
+      "name": "MAF Coverage Stats",
+      "names": [
+        "maf_stats1",
+        "MAF Coverage Stats"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e770b9c0cec6c6a36f7132",
+      "name": "BDE",
+      "names": [
+        "bde"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e770bcc0cec6c6a36f717f",
+      "name": "beat",
+      "names": [
+        "beat"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e770cec0cec6c6a36f72e2",
+      "name": "BIOR",
+      "names": [
+        "bior"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e770d4c0cec6c6a36f737f",
+      "name": "CCS",
+      "names": [
+        "pbccs",
+        "CCS"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 3
+    },
+    {
+      "tool_id": "69e770dac0cec6c6a36f740e",
+      "name": "MutSpec Compare",
+      "names": [
+        "mutspeccompare",
+        "MutSpec Compare"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e770dbc0cec6c6a36f741f",
+      "name": "BSF",
+      "names": [
+        "bsf"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e770ddc0cec6c6a36f7433",
+      "name": "BUS",
+      "names": [
+        "bus",
+        "bioconductor-bus"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e770e3c0cec6c6a36f74c2",
+      "name": "ucsc-bedtopsl",
+      "names": [
+        "ucsc-bedtopsl"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e770f2c0cec6c6a36f7601",
+      "name": "graph2pro-var",
+      "names": [
+        "graph2pro-var",
+        "dbgraph"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77101c0cec6c6a36f7760",
+      "name": "rmats2sashimiplot",
+      "names": [
+        "rmats2sashimiplot"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77103c0cec6c6a36f77a7",
+      "name": "Bambino",
+      "names": [
+        "bambino"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "app"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77104c0cec6c6a36f77ad",
+      "name": "Omero hyperstack to Fluo measurements",
+      "names": [
+        "omero_hyperstack_to_fluo_measurements_on_gastruloid",
+        "Omero hyperstack to Fluo measurements"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77104c0cec6c6a36f77b1",
+      "name": "OmicsDI",
+      "names": [
+        "omicsdi"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e7710ac0cec6c6a36f783c",
+      "name": "PhageHostPrediction",
+      "names": [
+        "run_galaxy",
+        "PhageHostPrediction"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e77111c0cec6c6a36f78ec",
+      "name": "PLIDflow: Open Babel SMI",
+      "names": [
+        "openbabelsmi_plidflow",
+        "PLIDflow: Open Babel SMI"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77112c0cec6c6a36f7902",
+      "name": "bamread",
+      "names": [
+        "bamread"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e7711fc0cec6c6a36f7a2a",
+      "name": "GeneFamilyPhylogenyBuilder",
+      "names": [
+        "plant_tribes_gene_family_phylogeny_builder",
+        "GeneFamilyPhylogenyBuilder"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77130c0cec6c6a36f7b9b",
+      "name": "pyAlignment2Tab",
+      "names": [
+        "pyalignment2tab"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77136c0cec6c6a36f7c21",
+      "name": "print_qiime_config",
+      "names": [
+        "print_qiime_config"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77141c0cec6c6a36f7d18",
+      "name": "MCQUANT",
+      "names": [
+        "quantification",
+        "MCQUANT"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77142c0cec6c6a36f7d3e",
+      "name": "Clustering using RaceID",
+      "names": [
+        "raceid_clustering",
+        "Clustering using RaceID"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77154c0cec6c6a36f7eda",
+      "name": "MistyR",
+      "names": [
+        "bioconductor-mistyr",
+        "MistyR"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "lib",
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77159c0cec6c6a36f7f4f",
+      "name": "bioconductor-bsgenome.celegans.ucsc.ce11",
+      "names": [
+        "bioconductor-bsgenome.celegans.ucsc.ce11"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77160c0cec6c6a36f7fdf",
+      "name": "ninja",
+      "names": [
+        "ninja-nj",
+        "NINJA"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77163c0cec6c6a36f801c",
+      "name": "mvp",
+      "names": [
+        "mvp"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77163c0cec6c6a36f8021",
+      "name": "8_ident_SV",
+      "names": [
+        "8_ident_sv"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77165c0cec6c6a36f804b",
+      "name": "BroadPeak",
+      "names": [
+        "broadpeak"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77186c0cec6c6a36f834c",
+      "name": "pycov3",
+      "names": [
+        "pycov3"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77189c0cec6c6a36f838d",
+      "name": "Kruskal-Wallis Non-Parametric Test",
+      "names": [
+        "secimtools_kruskal_wallis",
+        "Kruskal-Wallis Non-Parametric Test"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e771aec0cec6c6a36f86dc",
+      "name": "Split Paired Collection",
+      "names": [
+        "split_paired_collection",
+        "Split Paired Collection"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 3
+    },
+    {
+      "tool_id": "69e771aec0cec6c6a36f86e1",
+      "name": "Split Tabular Columns",
+      "names": [
+        "split_tabular_columns",
+        "Split Tabular Columns"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e771afc0cec6c6a36f86e9",
+      "name": "ariba",
+      "names": [
+        "ariba"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e771b0c0cec6c6a36f8710",
+      "name": "Edit Header",
+      "names": [
+        "editheader",
+        "Edit Header"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e771b7c0cec6c6a36f87b5",
+      "name": "perl-bio-trace-abif",
+      "names": [
+        "perl-bio-trace-abif"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e771bdc0cec6c6a36f883b",
+      "name": "PyFBA",
+      "names": [
+        "pyfba"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e771c6c0cec6c6a36f890d",
+      "name": "RNAsubopt",
+      "names": [
+        "rnasubopt"
+      ],
+      "sources": [
+        "galaxy_metadata",
+        "toolshed"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e771cfc0cec6c6a36f89e9",
+      "name": "TBX20BamSubset",
+      "names": [
+        "bioconductor-tbx20bamsubset",
+        "TBX20BamSubset"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e771d1c0cec6c6a36f8a16",
+      "name": "COVIDHunter",
+      "names": [
+        "covidhunter"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "script"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e771e0c0cec6c6a36f8b72",
+      "name": "CLEP",
+      "names": [
+        "clep"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e771edc0cec6c6a36f8ca0",
+      "name": "pbtk",
+      "names": [
+        "pbtk"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e771eec0cec6c6a36f8cb3",
+      "name": "CSSR",
+      "names": [
+        "cssr"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "app"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e771f9c0cec6c6a36f8dd5",
+      "name": "CanVar",
+      "names": [
+        "canvar"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e771fbc0cec6c6a36f8e01",
+      "name": "cancerCellNet",
+      "names": [
+        "cancercellnet"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "lib",
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e771fdc0cec6c6a36f8e34",
+      "name": "Deepbinner",
+      "names": [
+        "deepbinner"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e771ffc0cec6c6a36f8e65",
+      "name": "CapR",
+      "names": [
+        "capr"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e77200c0cec6c6a36f8e76",
+      "name": "bioconductor-pd.clariom.s.rat.ht",
+      "names": [
+        "bioconductor-pd.clariom.s.rat.ht"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77204c0cec6c6a36f8ec7",
+      "name": "PIA",
+      "names": [
+        "pia",
+        "PIA - Protein Inference Algorithms"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "app",
+        "cmd",
+        "lib",
+        "workflow"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7720cc0cec6c6a36f8f76",
+      "name": "ChIP-BIT2",
+      "names": [
+        "chip-bit2"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77217c0cec6c6a36f907a",
+      "name": "CmPIweb",
+      "names": [
+        "cmpiweb"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7721fc0cec6c6a36f9126",
+      "name": "GenomicScores",
+      "names": [
+        "bioconductor-genomicscores",
+        "GenomicScores"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7721fc0cec6c6a36f912b",
+      "name": "parallel-meta-suite",
+      "names": [
+        "parallel-meta-suite"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77222c0cec6c6a36f9181",
+      "name": "cgat-core",
+      "names": [
+        "cgatcore",
+        "cgat-core"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77225c0cec6c6a36f91c8",
+      "name": "ChemDIS-Mixture",
+      "names": [
+        "chemdis-mixture"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77231c0cec6c6a36f92d7",
+      "name": "assembly_finder",
+      "names": [
+        "assembly_finder",
+        "assembly_finder: download genomes using NCBI datasets"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77234c0cec6c6a36f9322",
+      "name": "bioconductor-bsgenome.mmusculus.ucsc.mm8.masked",
+      "names": [
+        "bioconductor-bsgenome.mmusculus.ucsc.mm8.masked"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77234c0cec6c6a36f9324",
+      "name": "drive",
+      "names": [
+        "drive"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77251c0cec6c6a36f95f7",
+      "name": "ContraDRG",
+      "names": [
+        "contradrg"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77254c0cec6c6a36f9629",
+      "name": "CorGen",
+      "names": [
+        "corgen"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77257c0cec6c6a36f967a",
+      "name": "Cortex",
+      "names": [
+        "cortex",
+        "cortex_con"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "biotools"
+      ],
+      "type": [
+        "cmd",
+        "suite"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77257c0cec6c6a36f9681",
+      "name": "minnow",
+      "names": [
+        "minnow"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7725fc0cec6c6a36f9727",
+      "name": "Crop Analysis Tool Suite (CATS)",
+      "names": [
+        "ipk-cats",
+        "Crop Analysis Tool Suite (CATS)"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77264c0cec6c6a36f97b2",
+      "name": "CuticleDB",
+      "names": [
+        "cuticledb"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77283c0cec6c6a36f9a75",
+      "name": "IMPCdata",
+      "names": [
+        "bioconductor-impcdata",
+        "IMPCdata"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77287c0cec6c6a36f9ace",
+      "name": "genomicInstability",
+      "names": [
+        "bioconductor-genomicinstability",
+        "genomicInstability"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7728ac0cec6c6a36f9b04",
+      "name": "BURST",
+      "names": [
+        "burst"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7728dc0cec6c6a36f9b42",
+      "name": "DPN-SA",
+      "names": [
+        "dpn-sa"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "script"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77292c0cec6c6a36f9be5",
+      "name": "gemBS",
+      "names": [
+        "gembs"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7729ec0cec6c6a36f9cff",
+      "name": "variabel",
+      "names": [
+        "variabel"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e772b3c0cec6c6a36f9ef3",
+      "name": "perl-html-parser",
+      "names": [
+        "perl-html-parser"
+      ],
+      "sources": [
+        "bioconda_recipes"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e772cdc0cec6c6a36fa135",
+      "name": "CardinalIO",
+      "names": [
+        "bioconductor-cardinalio",
+        "CardinalIO"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e772cfc0cec6c6a36fa16f",
+      "name": "Download image and update opends",
+      "names": [
+        "download_image_and_update_opends",
+        "Download image and update opends"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e772d0c0cec6c6a36fa190",
+      "name": "dmatch",
+      "names": [
+        "dmatch"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e772d6c0cec6c6a36fa201",
+      "name": "DynaMut",
+      "names": [
+        "dynamut"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e772dcc0cec6c6a36fa27e",
+      "name": "DenseCPD",
+      "names": [
+        "densecpd"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e772ebc0cec6c6a36fa454",
+      "name": "fairmetadata4j",
+      "names": [
+        "fairdatapoint",
+        "FAIR Data Point",
+        "FAIRDataPoint-Spec",
+        "fairmetadata4j"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "rest",
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e772f3c0cec6c6a36fa53e",
+      "name": "FIT",
+      "names": [
+        "fit"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e772f4c0cec6c6a36fa55c",
+      "name": "FM-index",
+      "names": [
+        "fm-index"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e772ffc0cec6c6a36fa6e2",
+      "name": "Find regions of interest and update opends",
+      "names": [
+        "find_regions_of_interest_and_update_opends",
+        "Find regions of interest and update opends"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77301c0cec6c6a36fa70a",
+      "name": "FlavoDb",
+      "names": [
+        "flavodb"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77316c0cec6c6a36fa925",
+      "name": "GRAbB",
+      "names": [
+        "grabb"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77319c0cec6c6a36fa977",
+      "name": "Gene Expression Barcode",
+      "names": [
+        "gene_expression_barcode",
+        "Gene Expression Barcode"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7731ac0cec6c6a36fa996",
+      "name": "GeneCloudOmics",
+      "names": [
+        "genecloudomics"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7731dc0cec6c6a36fa9e9",
+      "name": "Gdaphen",
+      "names": [
+        "gdaphen"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "workflow"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77322c0cec6c6a36faaa2",
+      "name": "GeneMarkeR",
+      "names": [
+        "genemarker"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77324c0cec6c6a36faaeb",
+      "name": "Genome Projector",
+      "names": [
+        "genome_projector",
+        "Genome Projector"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77325c0cec6c6a36fab04",
+      "name": "GeoSPM",
+      "names": [
+        "geospm"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "script"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77325c0cec6c6a36fab0f",
+      "name": "Get binary volumes from a volume of labels integers",
+      "names": [
+        "binary-volumes",
+        "Get binary volumes from a volume of labels integers"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 2
+    },
+    {
+      "tool_id": "69e77326c0cec6c6a36fab16",
+      "name": "GMV",
+      "names": [
+        "gmv"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77327c0cec6c6a36fab3d",
+      "name": "GPU.proton.DOCK",
+      "names": [
+        "gpu.proton.dock"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7732fc0cec6c6a36fac51",
+      "name": "HTM-ONE",
+      "names": [
+        "htm-one"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77332c0cec6c6a36facbf",
+      "name": "Hi-ChiP-ML",
+      "names": [
+        "hi-chip-ml"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "workbench"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77339c0cec6c6a36fad9c",
+      "name": "HieRFIT",
+      "names": [
+        "hierfit"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7733bc0cec6c6a36faded",
+      "name": "HAMdb",
+      "names": [
+        "hamdb"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77341c0cec6c6a36faec4",
+      "name": "HDX WorkBench",
+      "names": [
+        "hdx_workbench",
+        "HDX WorkBench"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "app"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77341c0cec6c6a36faedb",
+      "name": "Icy",
+      "names": [
+        "icy"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "app"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77358c0cec6c6a36fb215",
+      "name": "KUL-VBG",
+      "names": [
+        "kul-vbg"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77359c0cec6c6a36fb242",
+      "name": "LDM",
+      "names": [
+        "ldm"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7735ac0cec6c6a36fb260",
+      "name": "lpmx",
+      "names": [
+        "lpmx"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7735ec0cec6c6a36fb2de",
+      "name": "Inpactor2",
+      "names": [
+        "inpactor2"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7735ec0cec6c6a36fb2e5",
+      "name": "Insplico_simulations",
+      "names": [
+        "insplico",
+        "Insplico_simulations"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77364c0cec6c6a36fb3a2",
+      "name": "L1-SOUL",
+      "names": [
+        "l1-soul"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "app"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77365c0cec6c6a36fb3a7",
+      "name": "L3N",
+      "names": [
+        "l3n"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "script"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77371c0cec6c6a36fb533",
+      "name": "MCTBI",
+      "names": [
+        "mctbi"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7737ec0cec6c6a36fb70d",
+      "name": "MODELLER",
+      "names": [
+        "modeller"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77388c0cec6c6a36fb867",
+      "name": "MetaLIMS",
+      "names": [
+        "metalims"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e773a8c0cec6c6a36fbb9c",
+      "name": "NGS-QC Generator",
+      "names": [
+        "ngs-qc_generator",
+        "NGS-QC Generator"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773b4c0cec6c6a36fbcd9",
+      "name": "MoMI-G",
+      "names": [
+        "momi-g"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773b5c0cec6c6a36fbcf9",
+      "name": "MultiLoc2",
+      "names": [
+        "multiloc2"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773b6c0cec6c6a36fbd14",
+      "name": "NIMAA",
+      "names": [
+        "nimaa"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773b7c0cec6c6a36fbd41",
+      "name": "MuTect",
+      "names": [
+        "mutect"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e773c1c0cec6c6a36fbeb1",
+      "name": "OLYMPUS",
+      "names": [
+        "olympus"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e773c2c0cec6c6a36fbecc",
+      "name": "ORGANISMS",
+      "names": [
+        "organisms"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773c3c0cec6c6a36fbee2",
+      "name": "OSPREY",
+      "names": [
+        "osprey"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773c4c0cec6c6a36fbefa",
+      "name": "OVA",
+      "names": [
+        "ova"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773c6c0cec6c6a36fbf12",
+      "name": "OdoriFy",
+      "names": [
+        "odorify"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773d1c0cec6c6a36fc021",
+      "name": "PAL",
+      "names": [
+        "pal"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e773d9c0cec6c6a36fc137",
+      "name": "PGMRA",
+      "names": [
+        "pgmra"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773dcc0cec6c6a36fc18f",
+      "name": "PIO",
+      "names": [
+        "pio",
+        "r-pio"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773ddc0cec6c6a36fc19d",
+      "name": "PLBD",
+      "names": [
+        "plbd"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e773dfc0cec6c6a36fc1e2",
+      "name": "PRED-TMBB",
+      "names": [
+        "pred-tmbb"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773e7c0cec6c6a36fc2bf",
+      "name": "PecanPy",
+      "names": [
+        "pecanpy"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773edc0cec6c6a36fc346",
+      "name": "PROTEO: Peptide evidence for the human genome",
+      "names": [
+        "proteo",
+        "PROTEO: Peptide evidence for the human genome"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "rest"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773f4c0cec6c6a36fc434",
+      "name": "PIIKA 2.5",
+      "names": [
+        "piika_2.5",
+        "PIIKA 2.5"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773f5c0cec6c6a36fc469",
+      "name": "PLEXdb",
+      "names": [
+        "plexdb"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e773fbc0cec6c6a36fc521",
+      "name": "PTMdyna",
+      "names": [
+        "ptmdyna"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77404c0cec6c6a36fc66d",
+      "name": "PoPS",
+      "names": [
+        "pops-protease",
+        "PoPS"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "app"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77405c0cec6c6a36fc697",
+      "name": "PopAmaranth",
+      "names": [
+        "popamaranth"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77407c0cec6c6a36fc6cf",
+      "name": "PremPS",
+      "names": [
+        "premps"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77412c0cec6c6a36fc85b",
+      "name": "PyDesigner",
+      "names": [
+        "pydesigner"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77412c0cec6c6a36fc873",
+      "name": "pylda",
+      "names": [
+        "pyldm",
+        "pylda"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd",
+        "workbench"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77414c0cec6c6a36fc8ba",
+      "name": "Pypreclin",
+      "names": [
+        "pypreclin"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77415c0cec6c6a36fc8c6",
+      "name": "RASP",
+      "names": [
+        "rasp-rna",
+        "RASP"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77428c0cec6c6a36fcb77",
+      "name": "Re-Annotator",
+      "names": [
+        "re-annotator"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e7742ec0cec6c6a36fcc2d",
+      "name": "ReMM",
+      "names": [
+        "remm_score",
+        "ReMM",
+        "ReMM score"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "rest",
+        "web",
+        "workflow"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7742ec0cec6c6a36fcc32",
+      "name": "ReNE",
+      "names": [
+        "rene"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "plugin"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7742ec0cec6c6a36fcc38",
+      "name": "ReQTL",
+      "names": [
+        "reqtl"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77432c0cec6c6a36fccb5",
+      "name": "Robetta",
+      "names": [
+        "robetta"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77433c0cec6c6a36fcce0",
+      "name": "Rediscover",
+      "names": [
+        "rediscover"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77435c0cec6c6a36fcd2c",
+      "name": "rossmann-toolbox",
+      "names": [
+        "rossmann-toolbox"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "lib",
+        "suite",
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77437c0cec6c6a36fcd53",
+      "name": "S2RSLDB",
+      "names": [
+        "s2rsldb"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77438c0cec6c6a36fcd86",
+      "name": "SALT",
+      "names": [
+        "salt_snp",
+        "SALT"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7743ec0cec6c6a36fce62",
+      "name": "SCOR",
+      "names": [
+        "scor"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7743fc0cec6c6a36fce8a",
+      "name": "SEGAN",
+      "names": [
+        "segan"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77442c0cec6c6a36fcf10",
+      "name": "SCOUTS",
+      "names": [
+        "scout",
+        "SCOUTS"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77447c0cec6c6a36fcfa7",
+      "name": "speadi",
+      "names": [
+        "speadi",
+        "SPEADI: Scalable Protein Environment Analysis for Dynamics and Ions"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7744ac0cec6c6a36fd031",
+      "name": "SINFONIA",
+      "names": [
+        "sinfonia"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7744bc0cec6c6a36fd046",
+      "name": "STEPP",
+      "names": [
+        "stepp"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "app"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e7744dc0cec6c6a36fd08c",
+      "name": "SVM-RNE",
+      "names": [
+        "svm-rne"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77453c0cec6c6a36fd17c",
+      "name": "SSA",
+      "names": [
+        "ssa"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "suite"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77454c0cec6c6a36fd1ac",
+      "name": "SeqCode",
+      "names": [
+        "seqcode"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77457c0cec6c6a36fd23a",
+      "name": "SMRT",
+      "names": [
+        "smrt"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 3
+    },
+    {
+      "tool_id": "69e77461c0cec6c6a36fd39e",
+      "name": "SmoothWin",
+      "names": [
+        "smoothwin"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77469c0cec6c6a36fd4a7",
+      "name": "StrainSelect",
+      "names": [
+        "strainselect"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7746cc0cec6c6a36fd525",
+      "name": "SysBio modelica library",
+      "names": [
+        "sysbio_modelica_library",
+        "SysBio modelica library"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77472c0cec6c6a36fd5f3",
+      "name": "TCRE",
+      "names": [
+        "tcre"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "script"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7747fc0cec6c6a36fd7d7",
+      "name": "text2brain_server",
+      "names": [
+        "text2brain",
+        "text2brain_server"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "web"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77480c0cec6c6a36fd7e9",
+      "name": "The Chickpea Portal",
+      "names": [
+        "the_chickpea_portal",
+        "The Chickpea Portal"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77483c0cec6c6a36fd858",
+      "name": "TogoTable",
+      "names": [
+        "togotable"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77488c0cec6c6a36fd906",
+      "name": "TwinCons",
+      "names": [
+        "twincons"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7748ac0cec6c6a36fd952",
+      "name": "UNWORDS",
+      "names": [
+        "unwords"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 3
+    },
+    {
+      "tool_id": "69e77490c0cec6c6a36fda26",
+      "name": "VCFFilterJS",
+      "names": [
+        "vcffilterjs"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77491c0cec6c6a36fda41",
+      "name": "VarWatch",
+      "names": [
+        "varwatch"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77493c0cec6c6a36fda81",
+      "name": "Vessel branch segmentation",
+      "names": [
+        "vessel-branch-segmentation",
+        "Vessel branch segmentation"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77496c0cec6c6a36fdacd",
+      "name": "VIRIDIC",
+      "names": [
+        "viridic"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7749ac0cec6c6a36fdb67",
+      "name": "VoPo",
+      "names": [
+        "vopo"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7749dc0cec6c6a36fdbb5",
+      "name": "webnma3",
+      "names": [
+        "webnma3",
+        "WEBnma"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "rest",
+        "suite",
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7749dc0cec6c6a36fdbb8",
+      "name": "WEGO2.0",
+      "names": [
+        "wego2.0"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e774a7c0cec6c6a36fdcd0",
+      "name": "YPA",
+      "names": [
+        "ypa"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e774abc0cec6c6a36fdd4c",
+      "name": "agriGO",
+      "names": [
+        "agrigo"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e774afc0cec6c6a36fddc9",
+      "name": "bcf-tools-cat",
+      "names": [
+        "bcf-tools-cat"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e774b5c0cec6c6a36fde4c",
+      "name": "mcaGUI",
+      "names": [
+        "mcagui"
+      ],
+      "sources": [
+        "bioconductor",
+        "biotools"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e774b7c0cec6c6a36fde84",
+      "name": "biojs-vis-wigexplorer",
+      "names": [
+        "biojs-vis-wigexplorer"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e774bdc0cec6c6a36fdf42",
+      "name": "consambig",
+      "names": [
+        "consambig"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e774c1c0cec6c6a36fdfd4",
+      "name": "cudaMMC",
+      "names": [
+        "cudammc"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e774cec0cec6c6a36fe1a5",
+      "name": "gpsr",
+      "names": [
+        "gpsr"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e774cec0cec6c6a36fe1a7",
+      "name": "gr Predictor",
+      "names": [
+        "gr_predictor",
+        "gr Predictor"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e774d5c0cec6c6a36fe297",
+      "name": "iep",
+      "names": [
+        "iep"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e774d6c0cec6c6a36fe2c0",
+      "name": "eTRIKS",
+      "names": [
+        "etriks"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e774dec0cec6c6a36fe3cc",
+      "name": "geoCancerPrognosticDatasetsRetriever",
+      "names": [
+        "geocancerprognosticdatasetsretriever"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e774e4c0cec6c6a36fe4b0",
+      "name": "iARG",
+      "names": [
+        "iarg"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "suite"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e774e6c0cec6c6a36fe50d",
+      "name": "kboolnet",
+      "names": [
+        "kboolnet"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "script"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e774eac0cec6c6a36fe5aa",
+      "name": "m5UPred",
+      "names": [
+        "m5upred"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "soap"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e774ecc0cec6c6a36fe5e7",
+      "name": "mrdna",
+      "names": [
+        "mrdna"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77505c0cec6c6a36fe92d",
+      "name": "pldbench",
+      "names": [
+        "pldbench"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7750cc0cec6c6a36fea07",
+      "name": "scNym",
+      "names": [
+        "scnym"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77523c0cec6c6a36fed16",
+      "name": "umx",
+      "names": [
+        "umx"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77524c0cec6c6a36fed2c",
+      "name": "vaRHC",
+      "names": [
+        "varhc"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7752ac0cec6c6a36fedf4",
+      "name": "MetMashR",
+      "names": [
+        "metmashr",
+        "bioconductor-metmashr"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "bioconductor",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7752dc0cec6c6a36fee32",
+      "name": "EpiXprSData",
+      "names": [
+        "epixprsdata"
+      ],
+      "sources": [
+        "bioconductor"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77548c0cec6c6a36ff19b",
+      "name": "khmn",
+      "names": [
+        "khmn"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e7754fc0cec6c6a36ff284",
+      "name": "msprot",
+      "names": [
+        "msprot"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77550c0cec6c6a36ff2b8",
+      "name": "cloge",
+      "names": [
+        "cloge"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77559c0cec6c6a36ff41e",
+      "name": "mcperm",
+      "names": [
+        "mcperm"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7755bc0cec6c6a36ff475",
+      "name": "evolvenetworks",
+      "names": [
+        "evolvenetworks"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7755fc0cec6c6a36ff532",
+      "name": "drcat",
+      "names": [
+        "drcat"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77563c0cec6c6a36ff5bd",
+      "name": "tagcalc3.lp-csic-uab.p",
+      "names": [
+        "tagcalc3.lp-csic-uab.p"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "69e77569c0cec6c6a36ff6a7",
+      "name": "pilelinetools",
+      "names": [
+        "pilelinetools"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77571c0cec6c6a36ff772",
+      "name": "open-outcomes",
+      "names": [
+        "open-outcomes"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77572c0cec6c6a36ff7af",
+      "name": "rstatserver",
+      "names": [
+        "rstatserver"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77574c0cec6c6a36ff7fc",
+      "name": "sampletracking",
+      "names": [
+        "sampletracking"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77577c0cec6c6a36ff89c",
+      "name": "minerva-tracks",
+      "names": [
+        "minerva-tracks"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 1
+    },
+    {
+      "tool_id": "69e7757ac0cec6c6a36ff902",
+      "name": "uscecr",
+      "names": [
+        "uscecr"
+      ],
+      "sources": [
+        "sourceforge"
+      ],
+      "type": [],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e7757ec0cec6c6a36ff9ab",
+      "name": "BufferCalc",
+      "names": [
+        "buffercalc"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e7757fc0cec6c6a36ff9b4",
+      "name": "CLIPPER 2.0",
+      "names": [
+        "clipper_2.0",
+        "CLIPPER 2.0"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77580c0cec6c6a36ff9e1",
+      "name": "D2H2-site",
+      "names": [
+        "d2h2",
+        "D2H2-site"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77583c0cec6c6a36ffa46",
+      "name": "GADES",
+      "names": [
+        "gades"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib",
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77584c0cec6c6a36ffa61",
+      "name": "Graph2VR",
+      "names": [
+        "graph2vr"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "app"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77586c0cec6c6a36ffab1",
+      "name": "Luciferase MSCV Retrovirus",
+      "names": [
+        "luciferase_mscv_retrovirus",
+        "Luciferase MSCV Retrovirus"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7758dc0cec6c6a36ffba6",
+      "name": "SOHPIE",
+      "names": [
+        "sohpie"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib",
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7758ec0cec6c6a36ffbb6",
+      "name": "Scipion-chem",
+      "names": [
+        "scipion_chem",
+        "Scipion-chem"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "plugin"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77591c0cec6c6a36ffc16",
+      "name": "ZeroBind",
+      "names": [
+        "zerobind"
+      ],
+      "sources": [
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "web"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77595c0cec6c6a36ffc92",
+      "name": "scGraph2Vec",
+      "names": [
+        "scgraph2vec"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77599c0cec6c6a36ffd0a",
+      "name": "ADNI OASIS",
+      "names": [
+        "adni",
+        "ADNI OASIS"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e7759ec0cec6c6a36ffdbd",
+      "name": "CASYMIR",
+      "names": [
+        "casymir"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775a4c0cec6c6a36ffe99",
+      "name": "Dashing Growth Curves",
+      "names": [
+        "dashing_growth_curves",
+        "Dashing Growth Curves"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775a5c0cec6c6a36ffebe",
+      "name": "Disease-Disease Network (DDN)",
+      "names": [
+        "ddn",
+        "Disease-Disease Network (DDN)"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e775a6c0cec6c6a36ffef4",
+      "name": "EcoNicheS",
+      "names": [
+        "econiches"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775a7c0cec6c6a36fff0d",
+      "name": "ExActR",
+      "names": [
+        "exactr"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775abc0cec6c6a36fffb4",
+      "name": "Good Statistical Monitoring (gsm) R package",
+      "names": [
+        "good_statistical_monitoring",
+        "Good Statistical Monitoring (gsm) R package"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e775adc0cec6c6a36fffe6",
+      "name": "HiFiBGC",
+      "names": [
+        "hifibgc"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775afc0cec6c6a3700030",
+      "name": "JAAG (JSON input file Assembler for AlphaFold 3 with Glycan integration)",
+      "names": [
+        "jaag",
+        "JAAG (JSON input file Assembler for AlphaFold 3 with Glycan integration)"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775afc0cec6c6a3700048",
+      "name": "KinasePredictor",
+      "names": [
+        "kinasepredictor"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775b3c0cec6c6a37000bf",
+      "name": "MS2extract",
+      "names": [
+        "ms2extract"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775b3c0cec6c6a37000c4",
+      "name": "MSModDetector",
+      "names": [
+        "msmoddetector"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775b4c0cec6c6a37000d6",
+      "name": "Marmoset Brain Connectome Apparatus",
+      "names": [
+        "marmoset_brain_connectome_mbc_resource",
+        "Marmoset Brain Connectome Apparatus"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775b4c0cec6c6a37000f0",
+      "name": "MetaboReport",
+      "names": [
+        "metaboreport"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e775b6c0cec6c6a3700129",
+      "name": "NApy",
+      "names": [
+        "napy"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775b9c0cec6c6a370018d",
+      "name": "OptiNiSt",
+      "names": [
+        "optinist"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e775b9c0cec6c6a37001a6",
+      "name": "PICKAPEP",
+      "names": [
+        "pickapep"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775bac0cec6c6a37001bb",
+      "name": "PSQAN",
+      "names": [
+        "psqan"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775c1c0cec6c6a37002b4",
+      "name": "SBMLNetwork",
+      "names": [
+        "sbmlnetwork"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775c2c0cec6c6a37002d8",
+      "name": "SMIntegration",
+      "names": [
+        "smintegration"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775c6c0cec6c6a3700368",
+      "name": "SurvivalContour",
+      "names": [
+        "survivalcontour"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775d3c0cec6c6a3700523",
+      "name": "qraLm",
+      "names": [
+        "qralm"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775d9c0cec6c6a37005e4",
+      "name": "IOBRpy",
+      "names": [
+        "iobrpy"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775eac0cec6c6a37007ab",
+      "name": "AFragmenter",
+      "names": [
+        "afragmenter"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775f2c0cec6c6a3700886",
+      "name": "batchCorr",
+      "names": [
+        "notameviz",
+        "batchCorr"
+      ],
+      "sources": [
+        "bioconductor",
+        "biotools",
+        "github"
+      ],
+      "type": [
+        "cmd",
+        "lib"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e775f7c0cec6c6a370095a",
+      "name": "Make data paper sketches",
+      "names": [
+        "data_paper_from_eml",
+        "Make data paper sketches"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e775f7c0cec6c6a3700962",
+      "name": "PL_Diamond view",
+      "names": [
+        "pl_diamond_view",
+        "PL_Diamond view"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e775fac0cec6c6a37009e8",
+      "name": "Convert DICOM to TIFF",
+      "names": [
+        "highdicom_dicom2tiff",
+        "Convert DICOM to TIFF"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e775fcc0cec6c6a3700a33",
+      "name": "Generic Learner Experiment",
+      "names": [
+        "ludwig_experiment",
+        "Generic Learner Experiment"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e775fec0cec6c6a3700a62",
+      "name": "MassMapper",
+      "names": [
+        "met4j_massmapper",
+        "MassMapper"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77601c0cec6c6a3700afc",
+      "name": "PHI toolkit report",
+      "names": [
+        "phi_toolkit_report",
+        "PHI toolkit report"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77605c0cec6c6a3700b9b",
+      "name": "Sculpt Sequences",
+      "names": [
+        "sculpt_sequences",
+        "Sculpt Sequences"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77605c0cec6c6a3700b9e",
+      "name": "seaborn pair-wise scatterplot",
+      "names": [
+        "seaborn_pairgrid",
+        "seaborn pair-wise scatterplot"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77606c0cec6c6a3700baa",
+      "name": "Seurat Preprocessing",
+      "names": [
+        "seurat_preprocessing",
+        "Seurat Preprocessing"
+      ],
+      "sources": [
+        "galaxy_metadata"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 0
+    },
+    {
+      "tool_id": "69e77611c0cec6c6a3700d1f",
+      "name": "BioBin",
+      "names": [
+        "biobin1201",
+        "BioBin"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77618c0cec6c6a3700e1f",
+      "name": "Mitochondrial Staining Kit (Orange Fluorescence)",
+      "names": [
+        "mitochondrial_staining_kit_orange_fluorescence",
+        "Mitochondrial Staining Kit (Orange Fluorescence)"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7761dc0cec6c6a3700ef2",
+      "name": "Workshop: DataSHIELD resources",
+      "names": [
+        "workshop_datashield_resources",
+        "Workshop: DataSHIELD resources"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 3
+    },
+    {
+      "tool_id": "69e7761fc0cec6c6a3700f57",
+      "name": "domprint",
+      "names": [
+        "domprint_gps",
+        "domprint"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "undefined"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7762cc0cec6c6a37010ef",
+      "name": "Acinetobase",
+      "names": [
+        "acinetobase"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db",
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e77643c0cec6c6a370130d",
+      "name": "LanceletDB",
+      "names": [
+        "lanceletdb"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db",
+        "web"
+      ],
+      "n_queries": 5
+    },
+    {
+      "tool_id": "69e77652c0cec6c6a3701469",
+      "name": "SoyMine",
+      "names": [
+        "soymine"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "db",
+        "soap",
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7765bc0cec6c6a370153f",
+      "name": "protea",
+      "names": [
+        "protea"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "app",
+        "web"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "69e7765bc0cec6c6a3701549",
+      "name": "stretcher (EBI)",
+      "names": [
+        "stretcher-ebi",
+        "stretcher (EBI)"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "soap",
+        "web"
+      ],
+      "n_queries": 4
+    },
+    {
+      "tool_id": "6a87238999682f1e2e0b1c9d",
+      "name": "Chembench",
+      "names": [
+        "chembench"
+      ],
+      "sources": [
+        "biotools"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 6
+    },
+    {
+      "tool_id": "6aa7cb66bf0518a6706d6dfc",
+      "name": "anndata",
+      "names": [
+        "r-anndata",
+        "anndata"
+      ],
+      "sources": [
+        "bioconda_recipes",
+        "github"
+      ],
+      "type": [
+        "cmd"
+      ],
+      "n_queries": 2
+    }
+  ],
+  "tasks": {
+    "model": "glm5.3-fp8",
+    "temperature": 0.7,
+    "prompt": "You simulate researchers searching a registry of life-science research software. Given a tool record, write the three searches below, each one a different person who needs this tool but has never heard of it.\n\n- \"keyword\": 2-4 words, typed as a terse search-box query (e.g. \"variant calling nanopore\").\n- \"description\": 6-14 words describing the task they want done, in their own words, not the record's (e.g. \"find structural variants in long reads from a tumour sample\").\n- \"question\": a question or problem statement as they would ask a colleague (e.g. \"how can I tell which of my contigs are bacterial contamination?\").\n\nRules:\n- Never use the tool's name, labels or any part of them.\n- Describe the need, not the tool: do not copy phrases from the description.\n- Only needs this tool really meets, according to the record.\n- If the record is too vague to say what the tool does, return null for all three.\n\nRespond with JSON only: {\"keyword\": \"...\", \"description\": \"...\", \"question\": \"...\"}",
+    "tools_without_record": 11,
+    "tools_answered": 288,
+    "tools_judged_too_vague": 13,
+    "tools_failed": 1,
+    "queries": 820,
+    "generated_at": "2026-11-12T16:16:02Z",
+    "pipeline_version": "0.1.5",
+    "pipeline_commit": "2916ea6aa7f901c63d659355e4fc9510753b341b",
+    "pipeline_dirty": true
+  }
+}

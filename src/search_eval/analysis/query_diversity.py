@@ -14,8 +14,13 @@ on the tools both have queries for (paired).
 Defaults: stored v1 (Qwen) vs revised v2 (GLM, README), as in
 query_versions_similarity. Writes a per-tool CSV, a JSON summary and a plot.
 
+--all-tools takes every tool of the corpus (--requests) instead of the sample.
+
 Usage:
     python -m search_eval.analysis.query_diversity
+    python -m search_eval.analysis.query_diversity --all-tools \
+        --set "v1 stored (Qwen)=data/results.jsonl" \
+        --set "v2 revised (Qwen)=data/v2_rev_qwen/results.jsonl"
     python -m search_eval.analysis.query_diversity --set "v1 GLM=data/v1_glm/results.jsonl" ...
 """
 
@@ -32,7 +37,7 @@ import numpy as np
 from search_eval.analysis.query_versions_similarity import DEFAULT_SETS
 from search_eval.common import (
     BLUE, DATA, DEFAULT_MODEL, EVAL, GREEN, INK, INK2, MUTED, ORANGE, PURPLE, SURFACE,
-    load_model, parse_sets, provenance, read_completions, style_axis,
+    all_tool_ids, load_model, parse_sets, provenance, read_completions, style_axis,
 )
 
 
@@ -47,13 +52,17 @@ def main() -> None:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("--set", dest="sets", action="append", metavar="LABEL=RESULTS")
     p.add_argument("--sample", type=Path, default=DATA / "readme_v2_rev" / "sample.json")
+    p.add_argument("--all-tools", action="store_true",
+                   help="every tool in --requests instead of the --sample")
+    p.add_argument("--requests", type=Path, default=DATA / "query_requests.jsonl")
     p.add_argument("--dup-threshold", type=float, default=0.9)
     p.add_argument("--seed", type=int, default=20261013)
     p.add_argument("--model", default=DEFAULT_MODEL)
     p.add_argument("--out-dir", type=Path, default=EVAL)
     args = p.parse_args()
     sets = parse_sets(args.sets, DEFAULT_SETS)
-    tool_ids = json.loads(args.sample.read_text())["tool_ids"]
+    tool_ids = (all_tool_ids(args.requests) if args.all_tools
+                else json.loads(args.sample.read_text())["tool_ids"])
     queries = {label: read_completions(Path(path), set(tool_ids)) for label, path in sets}
 
     model = load_model(args.model)

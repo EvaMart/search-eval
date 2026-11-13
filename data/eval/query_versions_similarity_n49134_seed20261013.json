@@ -1,0 +1,79 @@
+{
+  "model": "Alibaba-NLP/gte-modernbert-base",
+  "seed": 20261013,
+  "n_random": 500,
+  "n_neighbours": 5,
+  "sets": {
+    "v1 stored (Qwen)": "data/results.jsonl",
+    "v3, Mongo (Qwen)": "data/v3/results.jsonl"
+  },
+  "pipeline_version": "0.1.5",
+  "pipeline_commit": "2916ea6aa7f901c63d659355e4fc9510753b341b",
+  "pipeline_dirty": true,
+  "v1 stored (Qwen)": {
+    "n_tools_sampled": 49134,
+    "n_tools_with_queries": 45562,
+    "n_queries": 261872,
+    "same": {
+      "n_pairs": 261872,
+      "median": 0.7868932485580444,
+      "iqr": [
+        0.7298253774642944,
+        0.8436618894338608
+      ]
+    },
+    "neighbour": {
+      "n_pairs": 1309360,
+      "median": 0.7274470329284668,
+      "iqr": [
+        0.6707921475172043,
+        0.7787585556507111
+      ],
+      "auc_same_vs_this": 0.7060405105290263,
+      "frac_queries_own_record_beats_all": 0.5508569071912995
+    },
+    "random": {
+      "n_pairs": 130932999,
+      "median": 0.536530613899231,
+      "iqr": [
+        0.4924153685569763,
+        0.5804435014724731
+      ],
+      "auc_same_vs_this": 0.9896880412333972,
+      "frac_queries_own_record_beats_all": 0.7516878474980143
+    }
+  },
+  "v3, Mongo (Qwen)": {
+    "n_tools_sampled": 49134,
+    "n_tools_with_queries": 44842,
+    "n_queries": 250035,
+    "same": {
+      "n_pairs": 250035,
+      "median": 0.7741818428039551,
+      "iqr": [
+        0.7150162756443024,
+        0.8325195610523224
+      ]
+    },
+    "neighbour": {
+      "n_pairs": 1250175,
+      "median": 0.7193788886070251,
+      "iqr": [
+        0.6611253619194031,
+        0.772453784942627
+      ],
+      "auc_same_vs_this": 0.6844543580748337,
+      "frac_queries_own_record_beats_all": 0.5149679044933709
+    },
+    "random": {
+      "n_pairs": 125014601,
+      "median": 0.5326887369155884,
+      "iqr": [
+        0.4886305034160614,
+        0.5766772031784058
+      ],
+      "auc_same_vs_this": 0.9847637730195142,
+      "frac_queries_own_record_beats_all": 0.7156558081868538
+    }
+  }
+}

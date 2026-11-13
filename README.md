@@ -8,17 +8,26 @@ and plots the results.
 **Split rule:** anything a pipeline stage or `rsetl` command runs stays in the pipeline.
 Anything that samples, compares, scores or plots belongs here.
 
-Current topic: **synthetic queries**. These are the search queries an LLM writes for
-each tool, used for semantic search. The questions so far are whether showing the
-LLM the tool's GitHub README (prompt v2) gives better queries than the record alone
-(prompt v1), and how much of any difference comes from the model.
+Two topics so far:
+
+- **Retrieval** (current): which way of searching the Qdrant index finds the right
+  tool, and how it compares with the Observatory's current search. A hybrid of four
+  retrievers is ~2.4× better overall and ~16× better on task descriptions. See
+  [Retrieval evaluation](#retrieval-evaluation).
+- **Synthetic queries**: the search queries an LLM writes for each tool, used for
+  semantic search. The questions are whether showing the LLM the tool's GitHub
+  README (prompt v2) gives better queries than the record alone (prompt v1), and
+  how much of any difference comes from the model. See [Datasets](#datasets) to
+  [Results](#results).
 
 - [Install](#install)
+- [Retrieval evaluation](#retrieval-evaluation): the retrievers, the hybrid, the test queries and the results
 - [Datasets](#datasets): which query sets exist, and how they were made
 - [Prompt versions](#prompt-versions): exactly how v1, v2 and v2 revised differ
 - [Experiments](#experiments): generating a new query set
 - [Analyses](#analyses): what each analysis measures, its inputs and outputs
 - [Results](#results)
+- [Qdrant index](docs/qdrant.md): accessing the `tool_search` vector index and what is in it
 
 ## Install
 
@@ -33,7 +42,7 @@ pip install -e .
 pip install -e ".[pipeline]"
 ```
 
-Only the experiment script needs credentials: MongoDB, Gepeto and GitHub. Copy
+Only the experiment script and `snapshot_queries` need credentials: MongoDB, Gepeto and GitHub. Copy
 `.env.example` to `.env` and fill it in. The analyses only read files under `data/`.
 
 The pipeline installs generic top-level packages (`application`, `domain`,
@@ -47,9 +56,20 @@ similarity stage uses. Once it's cached, `HF_HUB_OFFLINE=1` avoids reaching hugg
 ```
 src/search_eval/
 ├── common.py                         # paths, loading, record text, embeddings, neighbours, provenance, plot style
+├── snapshot_queries.py               # copy one prompt version's queries from MongoDB (semantic_search) into data/
+├── eval_queries.py                   # build the retrieval test queries (sample, names, tasks, finish)
+├── retrieval/
+│   ├── index.py                      # Qdrant client, encoder, Hit
+│   ├── dense_description.py          # dense vectors of tool descriptions
+│   ├── bm25_description.py           # BM25 on tool descriptions
+│   ├── bm25_names.py                 # BM25 on names and labels (tool_search_exp_names), name matching
+│   ├── dense_queries.py              # dense vectors of the synthetic queries, grouped by tool
+│   ├── hybrid.py                     # RRF fusion of the four, with the name rule
+│   └── observatory_api.py            # the current Observatory search, as a baseline
 ├── experiments/
 │   └── readme_queries.py             # generate a query set online (Gepeto) for the 500-tool sample
 └── analysis/
+    ├── retriever_comparison.py       # score every retriever, the hybrids and the API on the test queries
     ├── query_source_similarity.py    # one query set, random sample of the whole corpus: query vs own record
     ├── query_versions_similarity.py  # several query sets on the 500-tool sample: query vs own record
     └── query_diversity.py            # several query sets on the 500-tool sample: queries of a tool vs each other
@@ -58,10 +78,119 @@ data/                                 # gitignored, see Datasets
 
 Run any module with `python -m search_eval.<package>.<module>`, and add `--help` for its options.
 
+## Retrieval evaluation
+
+The full methodology, with the reasons for each choice, is in the
+[methodology doc](https://claude.ai/artifact/Lg2MjkavtvYKStL8ZUFBnT). This is the summary.
+
+### What is searched
+
+The `tool_search` collection in Qdrant ([docs/qdrant.md](docs/qdrant.md)) holds, for
+50,314 tools, a description point (dense vector and BM25) and 250,817 synthetic
+query points (dense). `tool_search_exp_names` holds one point per tool with BM25 on
+its name and labels (built by `rsetl search-index --names`). The dense model is
+gte-modernbert-base.
+
+### The retrievers and the hybrid
+
+| Retriever | Searches | Catches |
+|---|---|---|
+| `dense_description` | description vectors | paraphrases of what a tool does |
+| `bm25_description` | description words (BM25) | rare terms, formats, names in descriptions |
+| `bm25_names` | names and labels (BM25, no stemming or stopwords) | lookups by name |
+| `dense_queries` | synthetic query vectors, best per tool | how users phrase a task |
+
+`hybrid` fuses the four with Reciprocal Rank Fusion: each takes its top 100 and a
+tool scores Σ w / (60 + rank). Ranks only, so cosine and BM25 scores are never
+compared. On top of that, the **name rule**:
+
+- a `bm25_names` hit whose name *is* the query (exact after normalising, or near
+  with ratio ≥ 0.9 when nothing is exact) gets weight 3, so "samtools" returns
+  samtools before samtools_stats;
+- when no hit matches, `bm25_names` gets weight 0: for a task query it only matches
+  ordinary words. This is the default (`hybrid_4_adaptive` below).
+
+```bash
+python -m search_eval.retrieval.hybrid --show-ranks "remove haplotigs from a diploid assembly"
+```
+
+### Test queries
+
+There were no real user queries, so `eval_queries` builds them for 300 tools sampled
+uniformly from the index (seed 20261112), into `data/eval_queries/`:
+
+- **596 name queries**, by rule: the exact name (300), a one-edit typo for names of
+  6+ letters (236), a variant with separators as spaces and lowercase (60).
+- **820 task queries** for 275 tools, written by glm5.3-fp8 from the tool's record:
+  a keyword search, a short description and a question, never the name. A different
+  model and prompt from the indexed synthetic queries.
+- **Leakage check**: a task query's cosine to its own tool's closest indexed query
+  has median 0.845 (0.741 for other tools); 3% are near-copies (≥ 0.95) and are also
+  scored apart.
+
+A query is answered if its tool, or a record with the same normalised name, is in
+the top 10 (`--strict`: the tool only; it changes MRR by ≤ 0.011).
+
+```bash
+python -m search_eval.eval_queries sample --n 300 --seed 20261112
+python -m search_eval.eval_queries names
+python -m search_eval.eval_queries tasks
+python -m search_eval.eval_queries finish
+python -m search_eval.analysis.retriever_comparison            # and --strict
+```
+
+`retriever_comparison` caches each retriever's hits in `data/eval_queries/runs.jsonl`
+and writes `data/eval/retriever_comparison_{lenient,strict}.{csv,json,png}`
+(Recall@1/5/10 and MRR@10 per query type).
+
+### Results, 2026-11-12
+
+MRR@10 (1 = the right tool always first):
+
+| System | All | Name queries | Task queries |
+|---|---|---|---|
+| **hybrid_4_adaptive (default)** | **0.628** | 0.790 | 0.511 |
+| hybrid_4_boost (names never dropped) | 0.603 | 0.792 | 0.465 |
+| hybrid_4 (no name rule) | 0.563 | 0.696 | 0.465 |
+| hybrid_3 (no `bm25_names`) | 0.526 | 0.548 | 0.510 |
+| bm25_description | 0.511 | 0.676 | 0.391 |
+| dense_description | 0.424 | 0.525 | 0.350 |
+| dense_queries | 0.355 | 0.126 | 0.521 |
+| bm25_names | 0.330 | 0.728 | 0.041 |
+| observatory_api (current search) | 0.264 | 0.585 | 0.031 |
+
+Conclusions:
+
+- **Each retriever has a blind spot.** `dense_queries` is best on tasks but can't find
+  names (the synthetic queries never contain them); `bm25_names` is the reverse.
+- **The hybrid keeps both strengths.** With the name rule it is best on names and
+  within 0.01 of the best single retriever on tasks.
+- **Both halves of the name rule matter.** Boosting matches lifts name queries
+  (0.696 → 0.792); dropping the names list when nothing matches lifts task queries
+  (0.465 → 0.511) at no cost on names.
+- **Against the current search**: 2.4× overall, 35% better on names and 16× on task
+  queries (0.031 → 0.511).
+
+Limits: the queries are synthetic (LLM- and rule-made), and only the tool and its
+same-name records count as right, so equally good alternatives count as misses.
+Both affect every system alike; the next step is to re-test on real Observatory
+search queries.
+
 ## Datasets
 
-All under `data/` (gitignored). There are four query sets: one for the full
+All under `data/`. There are five query sets: two for the full
 corpus, and three for a fixed 500-tool sample.
+
+**Data files.** Most of `data/` is too big for git and is ignored. Only the small
+reference files are tracked (about 1.4 MB; the exceptions are in `.gitignore`):
+
+- every `dataset.json` and `sample.json`, plus `results.dataset.json`;
+- the retrieval test queries: `eval_queries/{queries,name_queries,task_queries}.jsonl`;
+- the analysis summaries: `eval/*.json`, `eval/*.png`, `eval/retriever_comparison_*.csv`.
+
+The query sets, `query_requests.jsonl` and `eval_queries/runs.jsonl` are not in
+git. The embedding cache and the large per-query CSVs are rebuilt by running the
+analyses again.
 
 | Query set | Where | Prompt | Model | Run on | Tools | Generated |
 |---|---|---|---|---|---|---|
@@ -69,6 +198,7 @@ corpus, and three for a fixed 500-tool sample.
 | **v1 GLM** | `v1_glm/` | v1 | glm5.3-fp8 | Gepeto (online) | the 500-tool sample | 2026-10-13 |
 | **v2 GLM** | `readme_v2/` | v2 (first version) | glm5.3-fp8 | Gepeto (online) | the 500-tool sample | 2026-10-13 |
 | **v2 revised GLM** | `readme_v2_rev/` | v2 revised | glm5.3-fp8 | Gepeto (online) | the 500-tool sample | 2026-10-13 |
+| **v2 revised (Qwen)** | `v2_rev_qwen/` | v2 revised | Qwen3.6-27B | MN5 (batch job) | 50,247 (whole corpus) | 2026-10-16 |
 
 Each set has a metadata file: `dataset.json` in its folder, or
 `data/results.dataset.json` for the stored set, whose files sit at the top of
@@ -94,6 +224,30 @@ They're refreshed by a new export or MN5 run.
   text from here, and the set of records used for neighbours and random controls.
 - `results.jsonl`: output of the MN5 job for that export, holding the stored v1 queries.
 - `query_requests_test1000.jsonl`: a 1000-tool test export. No analysis uses it.
+
+### The full corpus: v2 revised (Qwen)
+
+The v2 revised prompt run on MN5 for the 2026-10-15 export (49,154 tools, 8,263 of
+them with a README excerpt), with the same model as v1 stored. So v1 stored vs this
+set changes only the prompt, plus the README where there is one. These are the
+queries in MongoDB today: every tool in `toolsDev` has exactly one prompt v2
+document. `v2_rev_qwen/` holds two files:
+
+- `results.jsonl`: a snapshot of the `semantic_search` collection (50,247
+  documents, 2026-10-27), made with `python -m search_eval.snapshot_queries
+  --prompt-version 2 --out-dir data/v2_rev_qwen` (it reads MongoDB credentials
+  from `.env`). The queries are stored as imported, already through `parse_queries`.
+- `mn5_results.jsonl`: the MN5 job's raw output that was imported, copied from the
+  pipeline repo (`data/semantic_search/results.jsonl`, 49,154 completions, no errors).
+
+Of the 50,247 tools, 44,882 have queries (8,089 of them with a README). The other
+5,365 are stored as `insufficient` with no queries: 1,093 were too thin to prompt,
+so they were never exported, and for 4,272 the model's answer left no usable query.
+`dataset.json` has the counts.
+
+An earlier MN5 run was incomplete (45,056 completions), and its import skipped
+every tool with a README. Both were superseded on 2026-10-16. That run's output is
+kept in the pipeline repo, under `data/semantic_search/v2-incomplete/`.
 
 ### The 500-tool sample: v1 GLM, v2 GLM, v2 revised GLM
 
@@ -150,6 +304,8 @@ previous output. Each JSON lists the sets it used and the pipeline provenance.
 | `query_source_similarity_n50_seed20261009` | query_source_similarity | v1 stored (Qwen), 50 tools sampled from the whole corpus |
 | `query_versions_similarity_n500_seed20261013` | query_versions_similarity | v1 stored (Qwen) vs v2 revised GLM, 500-tool sample |
 | `query_diversity_n500_seed20261013` | query_diversity | v1 stored (Qwen) vs v2 revised GLM, 500-tool sample |
+| `query_versions_similarity_n49134_seed20261013` | query_versions_similarity | v1 stored (Qwen), v2 revised Mongo and MN5 output (Qwen), whole corpus (`--all-tools`) |
+| `query_diversity_n49134_seed20261013` | query_diversity | same three sets, whole corpus (`--all-tools`) |
 
 `record_embeddings_<model>_<hash>.npy` is the cached embedding of every record's text
 (~49k records, minutes to compute). Every analysis uses it to find nearest
@@ -241,6 +397,18 @@ python -m search_eval.analysis.query_versions_similarity \
 `--set LABEL=RESULTS` can be repeated, and the label is what appears in the plot
 and summary. `--sample` picks the tool list, which defaults to
 `data/readme_v2_rev/sample.json`, the same 500 tools as the other two.
+`--all-tools` scores every tool in `--requests` (the whole corpus, 49,134) instead:
+
+```bash
+python -m search_eval.analysis.query_versions_similarity --all-tools \
+    --set "v1 stored (Qwen)=data/results.jsonl" \
+    --set "v2 revised, Mongo (Qwen)=data/v2_rev_qwen/results.jsonl" \
+    --set "v2 revised, MN5 output (Qwen)=data/v2_rev_qwen/mn5_results.jsonl"
+```
+
+On the whole corpus with three sets, this takes ~20 minutes and ~3 GB of RAM on a
+laptop, and the CSV is ~0.9 GB. A results file can be a MN5 output or a
+`snapshot_queries` file.
 
 Because the record text never includes the README, queries built on README-only
 details score *lower* here even when they're correct. A drop for v2 means the
@@ -261,7 +429,7 @@ python -m search_eval.analysis.query_diversity              # default: v1 stored
 python -m search_eval.analysis.query_diversity --set "v1 GLM=data/v1_glm/results.jsonl" --set ...
 ```
 
-Same `--set` and `--sample` options as above.
+Same `--set`, `--sample` and `--all-tools` options as above.
 
 ### `query_source_similarity`: one query set, sampled from the whole corpus
 
@@ -318,6 +486,57 @@ neighbouring tools *by description*. The README details they add can't score her
 | Tools with a near-duplicate pair | 39% | 14% |
 
 The medians barely move, but v2 has far fewer near-duplicate queries.
+
+### Prompt v2 revised vs stored v1, whole corpus, same model, 2026-10-16
+
+Sets: **v1 stored (Qwen)** vs **v2 revised (Qwen)**, both Qwen3.6-27B on MN5, over
+the whole corpus (`--all-tools`, 49,134 records). Only the prompt changes, plus the
+README where a tool has one. These numbers come from the **earlier, incomplete**
+data: the MN5 output was the 45,056-completion run (now in the pipeline repo's
+`data/semantic_search/v2-incomplete/`), and the MongoDB set came from the partial
+import that had no README tools (see [the dataset](#the-full-corpus-v2-revised-qwen)).
+They haven't been recomputed on the complete set. On tools without a README, the
+MongoDB set gave the same numbers as the MN5 output.
+
+**Whole sets** (each on its own tools)
+
+| | v1 stored | v2 revised, MN5 output | v2 revised, MongoDB |
+|---|---|---|---|
+| Tools with queries | 45,562 | 41,016 | 33,833 |
+| Queries | 261,872 | 226,454 | 184,428 |
+| Median cosine to own record | 0.787 | 0.779 | 0.787 |
+| Median cosine to 5 nearest neighbours | 0.727 | 0.723 | 0.725 |
+| Median cosine to 500 random records | 0.537 | 0.533 | 0.532 |
+| AUC, own record vs random | 0.990 | 0.987 | 0.990 |
+| AUC, own record vs neighbours | 0.706 | 0.693 | 0.711 |
+| Own record beats all 5 neighbours | 55% | 53% | 56% |
+| Median same-tool pair cosine | 0.77 | 0.76 | 0.76 |
+| Same-tool pairs ≥ 0.9 (near-duplicates) | 5.1% | 4.1% | 4.6% |
+| Tools with a near-duplicate pair | 38% | 32% | 35% |
+
+**Paired, v1 stored vs v2 revised MN5 output, tools with queries in both** (40,593),
+split by whether the v2 context had a README:
+
+| | README, v1 | README, v2 | no README, v1 | no README, v2 |
+|---|---|---|---|---|
+| Tools | 7,037 | 7,037 | 33,556 | 33,556 |
+| Median cosine to own record | 0.776 | 0.746 | 0.789 | 0.787 |
+| Median cosine to neighbours | 0.729 | 0.711 | 0.728 | 0.725 |
+| AUC, own record vs neighbours | 0.674 | 0.623 | 0.710 | 0.710 |
+| Own record beats all 5 neighbours | 46% | 38% | 56% | 56% |
+| Median per-tool mean pair cosine | 0.766 | 0.735 | 0.768 | 0.766 |
+
+Without a README, the revised prompt barely changes anything: the scores are the
+same, and there are slightly fewer near-duplicates. All of the movement is on the 7k README tools.
+Their queries move away from the description (own record 0.776 → 0.746, beats
+all neighbours 46% → 38%) and become more diverse (0.766 → 0.735). This is the
+same direction as the 500-tool GLM sample, at the scale of the corpus and with
+the model held fixed. So it comes from the README, not from GLM. As before, a
+lower score against the description doesn't show the queries are worse. The README
+details they add can't score here.
+
+The paired README split was computed from the two CSVs. It isn't part of either
+analysis's JSON.
 
 ### Open questions
 

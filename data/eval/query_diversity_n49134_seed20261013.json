@@ -1,0 +1,86 @@
+{
+  "model": "Alibaba-NLP/gte-modernbert-base",
+  "seed": 20261013,
+  "sets": {
+    "v1 stored (Qwen)": "data/results.jsonl",
+    "v3, Mongo (Qwen)": "data/v3/results.jsonl"
+  },
+  "pipeline_version": "0.1.5",
+  "pipeline_commit": "2916ea6aa7f901c63d659355e4fc9510753b341b",
+  "pipeline_dirty": true,
+  "v1 stored (Qwen)": {
+    "n_tools": 45397,
+    "n_queries": 261707,
+    "queries_per_tool_median": 6.0,
+    "within": {
+      "n_pairs": 633015,
+      "median": 0.76953125,
+      "mean": 0.7659572474616765,
+      "iqr": [
+        0.70751953125,
+        0.828125
+      ],
+      "frac_ge_0.9": 0.05071443804649179
+    },
+    "between": {
+      "n_pairs": 633015,
+      "median": 0.560546875,
+      "mean": 0.560672989350198,
+      "iqr": [
+        0.5185546875,
+        0.6025390625
+      ],
+      "frac_ge_0.9": 7.8987069816671e-06
+    },
+    "per_tool_mean": {
+      "median": 0.7681315104166667,
+      "iqr": [
+        0.72861328125,
+        0.80791015625
+      ]
+    },
+    "frac_tools_with_a_near_duplicate_pair": 0.37907791263739893
+  },
+  "v3, Mongo (Qwen)": {
+    "n_tools": 44693,
+    "n_queries": 249886,
+    "queries_per_tool_median": 6.0,
+    "within": {
+      "n_pairs": 587928,
+      "median": 0.75341796875,
+      "mean": 0.7507787432656773,
+      "iqr": [
+        0.69189453125,
+        0.8125
+      ],
+      "frac_ge_0.9": 0.03566763277135976
+    },
+    "between": {
+      "n_pairs": 587928,
+      "median": 0.5537109375,
+      "mean": 0.5539588137679061,
+      "iqr": [
+        0.51220703125,
+        0.595703125
+      ],
+      "frac_ge_0.9": 0.0
+    },
+    "per_tool_mean": {
+      "median": 0.7543294270833333,
+      "iqr": [
+        0.7148763020833333,
+        0.796044921875
+      ]
+    },
+    "frac_tools_with_a_near_duplicate_pair": 0.2872485624146958
+  },
+  "paired": {
+    "sets": [
+      "v1 stored (Qwen)",
+      "v3, Mongo (Qwen)"
+    ],
+    "n_tools": 44153,
+    "median_diff_per_tool_mean (second - first)": -0.008544921875,
+    "frac_tools_second_more_diverse": 0.5846488347337667
+  }
+}

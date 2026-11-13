@@ -1,0 +1,58 @@
+{
+  "name": "v2 revised (Qwen)",
+  "description": "Prompt v2 revised run on MN5 over the whole corpus, with the same model as v1 stored (Qwen3.6-27B), so v1 stored vs this set changes only the prompt, plus the GitHub README excerpt where a tool has one. results.jsonl is a snapshot of every document in MongoDB `semantic_search` after the complete import of 2026-10-16 (all prompt v2; queries already through parse_queries). mn5_results.jsonl is the MN5 job's raw output that was imported (research-software-etl data/semantic_search/results.jsonl), one completion for every exported tool. Tools too thin to prompt (1,093) are stored as `insufficient` with no model and are not in the MN5 output. An earlier, incomplete MN5 run (45,056 completions) and a partial import that skipped every README tool were superseded; that run is kept in research-software-etl data/semantic_search/v2-incomplete/.",
+  "files": {
+    "results": "results.jsonl",
+    "mn5_results": "mn5_results.jsonl"
+  },
+  "prompt_version": "2",
+  "prompt": "v2 revised",
+  "model": "Qwen3.6-27B",
+  "provider": "MN5 (BSC MareNostrum 5), vLLM batch job",
+  "generation_params": "Not recorded here: the job's manifest was not copied. Job defaults are temperature 0.7, top_p 0.9.",
+  "generated": "export 2026-10-15, MN5 run and import 2026-10-16",
+  "tools_scope": "whole corpus",
+  "counts": {
+    "tools_in_collection": 50247,
+    "exported": 49154,
+    "exported_with_readme": 8263,
+    "mn5_completions": 49154,
+    "mn5_errors": 0,
+    "tools_with_queries": 44882,
+    "tools_with_queries_and_readme": 8089,
+    "queries": 248460,
+    "insufficient_model_answered": 4272,
+    "insufficient_too_thin_to_prompt": 1093,
+    "snapshot": {
+      "documents_in_collection": 50247,
+      "documents_kept": 50247,
+      "by_prompt_version_model_status": [
+        {
+          "prompt_version": "2",
+          "model": "Qwen3.6-27B",
+          "status": "generated",
+          "n": 44882
+        },
+        {
+          "prompt_version": "2",
+          "model": "Qwen3.6-27B",
+          "status": "insufficient",
+          "n": 4272
+        },
+        {
+          "prompt_version": "2",
+          "model": null,
+          "status": "insufficient",
+          "n": 1093
+        }
+      ]
+    }
+  },
+  "source": "MongoDB collection `semantic_search`, documents with prompt_version '2'",
+  "snapshot_at": "2026-10-27T11:08:07Z",
+  "generated_by": "python -m search_eval.snapshot_queries --prompt-version 2 --out-dir data/v2_rev_qwen",
+  "pipeline_version": "0.1.5",
+  "pipeline_commit": "2916ea6aa7f901c63d659355e4fc9510753b341b",
+  "pipeline_dirty": true,
+  "system_prompt": "You write search queries that researchers would type into a life-science research software registry to find a specific tool.\n\nGiven a tool record, write up to 6 diverse queries (3-15 words each, mostly 4-10, as a researcher would type them) for which this tool is a strong, specific answer.\n\nRules:\n- Phrase each query as a researcher's need: the task, the data types, the file formats, the organisms, the method or the domain, stated concretely.\n- Vary the angle across queries (task, input data, output, domain, method); do not paraphrase the same query.\n- Never include the tool's name or label.\n- No generic queries such as \"bioinformatics tool\", \"data analysis software\" or \"process files\".\n- Use only information present in the record; do not invent capabilities.\n- The record may end with an excerpt of the tool's README. Use it for specifics (data types, file formats, methods, organisms, use cases); ignore installation steps, licensing, citation, badges and other boilerplate.\n- Do not base queries on example datasets, benchmark figures, version numbers or implementation internals (encodings, checksums, internal file layouts): researchers search for what a tool does, not for how it was tested or built.\n- If the record lacks enough specific information to write useful queries, return an empty list.\n\nRespond with JSON only, no commentary: {\"queries\": [\"...\", \"...\"]}"
+}

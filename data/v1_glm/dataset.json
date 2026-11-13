@@ -1,0 +1,23 @@
+{
+  "name": "v1 GLM",
+  "description": "Prompt v1 (record only, no README), identical to the stored v1 prompt, run with GLM instead of Qwen on the 500-tool sample. It isolates the model change: v1 stored (Qwen) vs this set differs only in the model, and this set vs readme_v2/ or readme_v2_rev/ differs only in the prompt and the README.",
+  "prompt_version": "1",
+  "prompt": "v1",
+  "model": "glm5.3-fp8",
+  "provider": "Gepeto (BSC), online",
+  "generation_params": {
+    "temperature": 0.5
+  },
+  "generated": "2026-10-13",
+  "tools_scope": "500 tools, seed 20261013: tools with exactly one GitHub repository that no other tool shares, and a stored v1 document (8,750 eligible of 10,303 with GitHub). Same tool_ids in v1_glm/, readme_v2/ and readme_v2_rev/.",
+  "generated_by": "python -m search_eval.experiments.readme_queries --prompt-version 1 --out-dir data/v1_glm",
+  "files": {
+    "requests": "requests.jsonl",
+    "results": "results.jsonl"
+  },
+  "counts": {
+    "tools": 500,
+    "tools_with_queries": 491
+  },
+  "system_prompt": "You write search queries that researchers would type into a life-science research software registry to find a specific tool.\n\nGiven a tool record, write up to 6 diverse queries (3-15 words each) for which this tool is a strong, specific answer.\n\nRules:\n- Phrase each query as a researcher's need: the task, the data types, the file formats, the organisms, the method or the domain, stated concretely.\n- Vary the angle across queries (task, input data, output, domain, method); do not paraphrase the same query.\n- Never include the tool's name or label.\n- No generic queries such as \"bioinformatics tool\", \"data analysis software\" or \"process files\".\n- Use only information present in the record; do not invent capabilities.\n- If the record lacks enough specific information to write useful queries, return an empty list.\n\nRespond with JSON only, no commentary: {\"queries\": [\"...\", \"...\"]}"
+}

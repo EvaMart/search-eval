@@ -68,13 +68,31 @@ def load(results_path: Path, requests_path: Path):
 
 
 def read_completions(path: Path, tool_ids: set[str]) -> dict[str, list[str]]:
-    """The stored queries of these tools: each completion through `parse_queries`."""
+    """
+    The stored queries of these tools: each completion through `parse_queries`.
+
+    A snapshot of MongoDB documents (`snapshot_queries`) holds queries that
+    already went through it at import, so those are taken as they are.
+    """
     out = {}
     for line in path.open():
         r = json.loads(line)
-        if r["id"] in tool_ids:
+        if "tool_id" in r:
+            if r["tool_id"] in tool_ids:
+                out[r["tool_id"]] = r.get("queries") or []
+        elif r["id"] in tool_ids:
             out[r["id"]] = parse_queries(r["completion"], r["names"]) or []
     return out
+
+
+def all_tool_ids(requests_path: Path) -> list[str]:
+    """Every tool of an export that has a context: the whole corpus, sorted."""
+    ids = []
+    for line in requests_path.open():
+        r = json.loads(line)
+        if r["messages"][1]["content"]:
+            ids.append(r["id"])
+    return sorted(ids)
 
 
 def parse_sets(sets: list[str] | None, default: list[str]) -> list[list[str]]:
@@ -145,6 +163,31 @@ def nearest_neighbours(tool_id: str, ids: list[str], matrix: np.ndarray,
             out.append(other)
             if len(out) == k:
                 break
+    return out
+
+
+def nearest_neighbours_many(tool_ids: list[str], ids: list[str], matrix: np.ndarray,
+                            sources: dict, k: int, batch: int = 512) -> dict[str, list[str]]:
+    """
+    `nearest_neighbours` for many tools at once: one matrix product per batch,
+    and a sort of only the top candidates. Falls back to the full sort for a tool
+    with too many copies of its own text among them.
+    """
+    index = {i: n for n, i in enumerate(ids)}
+    texts = [sources[i][0].strip().lower() for i in ids]
+    m = min(len(ids), k + 64)
+    out = {}
+    for start in range(0, len(tool_ids), batch):
+        chunk = tool_ids[start:start + batch]
+        rows = [index[t] for t in chunk]
+        sims = matrix[rows] @ matrix.T
+        top = np.argpartition(-sims, m - 1, axis=1)[:, :m]
+        for t, row, s, cand in zip(chunk, rows, sims, top):
+            found = [n for n in cand[np.argsort(-s[cand])]
+                     if n != row and texts[n] != texts[row]][:k]
+            if len(found) < k:
+                found = [index[o] for o in nearest_neighbours(t, ids, matrix, sources, k)]
+            out[t] = [ids[n] for n in found]
     return out
 
 

@@ -1,0 +1,39 @@
+{
+  "name": "",
+  "description": "",
+  "prompt_version": "2",
+  "source": "MongoDB collection `semantic_search`, documents with prompt_version '2'",
+  "snapshot_at": "2026-10-27T14:39:34Z",
+  "generated_by": "python -m search_eval.snapshot_queries --prompt-version 2 --out-dir data/v3",
+  "files": {
+    "results": "results.jsonl"
+  },
+  "counts": {
+    "documents_in_collection": 50314,
+    "documents_kept": 50314,
+    "by_prompt_version_model_status": [
+      {
+        "prompt_version": "2",
+        "model": "Qwen3.6-27B",
+        "status": "generated",
+        "n": 44978
+      },
+      {
+        "prompt_version": "2",
+        "model": "Qwen3.6-27B",
+        "status": "insufficient",
+        "n": 4243
+      },
+      {
+        "prompt_version": "2",
+        "model": null,
+        "status": "insufficient",
+        "n": 1093
+      }
+    ]
+  },
+  "pipeline_version": "0.1.5",
+  "pipeline_commit": "2916ea6aa7f901c63d659355e4fc9510753b341b",
+  "pipeline_dirty": true,
+  "system_prompt": "You write search queries that researchers would type into a life-science research software registry to find a specific tool.\n\nGiven a tool record, write up to 6 diverse queries (3-15 words each, mostly 4-10, as a researcher would type them) for which this tool is a strong, specific answer.\n\nRules:\n- Phrase each query as a researcher's need: the task, the data types, the file formats, the organisms, the method or the domain, stated concretely.\n- Vary the angle across queries (task, input data, output, domain, method); do not paraphrase the same query.\n- Never include the tool's name or label.\n- No generic queries such as \"bioinformatics tool\", \"data analysis software\" or \"process files\".\n- Use only information present in the record; do not invent capabilities.\n- The record may end with an excerpt of the tool's README. Use it for specifics (data types, file formats, methods, organisms, use cases); ignore installation steps, licensing, citation, badges and other boilerplate.\n- Do not base queries on example datasets, benchmark figures, version numbers or implementation internals (encodings, checksums, internal file layouts): researchers search for what a tool does, not for how it was tested or built.\n- If the record lacks enough specific information to write useful queries, return an empty list.\n\nRespond with JSON only, no commentary: {\"queries\": [\"...\", \"...\"]}"
+}
