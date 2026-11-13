@@ -13,14 +13,13 @@ record and, where there is one, its GitHub README (about 250k queries for 50k
    tools), so a user's query can be matched against how people would ask for the
    tool. Prompts were compared
    for grounding and diversity ([Synthetic queries](#synthetic-queries)).
-1. **Index.** The pipeline ([research-software-etl](https://github.com/inab/research-software-etl))
+2. **Index.** The pipeline ([research-software-etl](https://github.com/inab/research-software-etl))
    stores descriptions, synthetic queries and names in Qdrant, as dense vectors
    (gte-modernbert-base) and BM25.
-2. **Four retrievers**, each with a different strength: description meaning,
-   description keywords, tool names, and synthetic queries.
-3. **Hybrid.** Their rankings are fused with Reciprocal Rank Fusion, plus a name
-   rule: when the query is a tool's name, that tool's vote counts 3×; when it is
-   not, the names retriever is left out.
+3. **Hybrid search.** Four retrievers, each with a different strength, are fused
+   with Reciprocal Rank Fusion, plus a rule for queries that are a tool's name:
+
+   <img src="docs/img/hybrid_fusion.png" alt="Four rankings are fused; the names list counts only when the query is a name" width="672">
 4. **Evaluation.** 1,416 test queries for 300 random tools (596 name queries and
    820 task descriptions), scored by MRR@10 against every retriever, the hybrid and
    the current Observatory search.
@@ -122,9 +121,9 @@ gte-modernbert-base.
 | `bm25_names` | names and labels (BM25, no stemming or stopwords) | lookups by name |
 | `dense_queries` | synthetic query vectors, best per tool | how users phrase a task |
 
-`hybrid` fuses the four with Reciprocal Rank Fusion: each takes its top 100 and a
-tool scores Σ w / (60 + rank). Ranks only, so cosine and BM25 scores are never
-compared. On top of that, the **name rule**:
+`hybrid` fuses them as in the [Overview](#overview) diagram: a tool scores
+Σ w / (60 + rank) over the four top-100 lists. Ranks only, so cosine and BM25
+scores are never compared. The **name rule**:
 
 - a `bm25_names` hit whose name *is* the query (exact after normalising, or near
   with ratio ≥ 0.9 when nothing is exact) gets weight 3, so "samtools" returns
@@ -167,7 +166,11 @@ and writes `data/eval/retriever_comparison_{lenient,strict}.{csv,json,png}`
 
 ### Results, 2026-11-12
 
-MRR@10 (1 = the right tool always first):
+MRR@10 (1 = the right tool always first). Each retriever has a blind spot:
+`dense_queries` is best on tasks but can't find names (the synthetic queries never
+contain them), and `bm25_names` is the reverse. Only the hybrids do well on both:
+
+<img src="docs/img/retrievers_name_vs_task.png" alt="Only the hybrids find tools well by both name and task" width="672">
 
 | System | All | Name queries | Task queries |
 |---|---|---|---|
@@ -181,12 +184,8 @@ MRR@10 (1 = the right tool always first):
 | bm25_names | 0.330 | 0.728 | 0.041 |
 | observatory_api (current search) | 0.264 | 0.585 | 0.031 |
 
-Conclusions:
-
-- **Each retriever has a blind spot.** `dense_queries` is best on tasks but can't find
-  names (the synthetic queries never contain them); `bm25_names` is the reverse.
-- **The hybrid keeps both strengths.** With the name rule it is best on names and
-  within 0.01 of the best single retriever on tasks.
+- **The default hybrid keeps both strengths.** It is best on names and within 0.01
+  of the best single retriever on tasks.
 - **Both halves of the name rule matter.** Boosting matches lifts name queries
   (0.696 → 0.792); dropping the names list when nothing matches lifts task queries
   (0.465 → 0.511) at no cost on names.
