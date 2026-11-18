@@ -14,7 +14,7 @@ record and, where there is one, its GitHub README (about 250k queries for 50k
    tool. Prompts were compared
    for grounding and diversity ([Synthetic queries](#synthetic-queries)).
 2. **Index.** The pipeline ([research-software-etl](https://github.com/inab/research-software-etl))
-   stores descriptions, synthetic queries and names in Qdrant, as dense vectors
+   stores descriptions, synthetic queries and names in [Qdrant](https://qdrant.tech/qdrant-vector-database/), as dense vectors
    (gte-modernbert-base) and BM25.
 3. **Hybrid search.** Four retrievers, each with a different strength, are fused
    with Reciprocal Rank Fusion, plus a rule for queries that are a tool's name:
@@ -36,7 +36,8 @@ Overall, the hybrid is also better than any of its retrievers alone, because eac
 one has a blind spot the others cover. 
 
 Details, limits and how to reproduce: [Retrieval evaluation](#retrieval-evaluation). 
-The full reasoning behind each choice is in the [methodology doc](https://claude.ai/artifact/Lg2MjkavtvYKStL8ZUFBnT).
+
+Details on the vector database, how to access, etc: [qdrant.md](docs/qdrant.md)
 
 ## Contents
 
